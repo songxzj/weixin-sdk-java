@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-//todo 没有request
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
