@@ -3,7 +3,7 @@ package com.github.songxzj.wxpay.v2.bean.result.redpack;
 import com.github.songxzj.wxpay.v2.bean.result.BaseWxPayResult;
 import com.google.common.collect.Lists;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.w3c.dom.Document;
@@ -13,7 +13,9 @@ import org.w3c.dom.NodeList;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @XStreamAlias("xml")
@@ -225,7 +227,9 @@ public class WxGetHbInfoResult extends BaseWxPayResult {
     /**
      * 裂变红包领取列表
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @XStreamAlias("hbinfo")
     public static class HbInfo implements Serializable {
         private static final long serialVersionUID = 8656751471237489643L;

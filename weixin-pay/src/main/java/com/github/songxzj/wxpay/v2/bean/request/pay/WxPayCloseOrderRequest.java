@@ -24,7 +24,9 @@ import java.util.Map;
  * <a href="https://pay.weixin.qq.com/wiki/doc/api/H5_sl.php?chapter=9_3&index=3">
  */
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

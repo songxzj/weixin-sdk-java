@@ -28,7 +28,9 @@ import java.util.List;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter5_1_5.shtml">
  */
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -134,7 +136,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * 场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -179,7 +183,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * 子单信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -269,7 +275,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * 支付者
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -293,7 +301,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * 订单金额
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -328,7 +338,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * 结算信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -361,7 +373,9 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
     /**
      * H5场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

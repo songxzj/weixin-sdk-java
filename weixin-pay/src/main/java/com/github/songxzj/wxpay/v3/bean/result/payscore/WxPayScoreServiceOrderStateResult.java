@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.payscore;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
@@ -189,7 +191,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 后付费项目
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostPayment implements Serializable {
         private static final long serialVersionUID = -4694931039858907062L;
@@ -234,7 +238,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 后付费商户优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostDiscount implements Serializable {
         private static final long serialVersionUID = -1235417652093452035L;
@@ -279,7 +285,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 服务时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class TimeRange implements Serializable {
         private static final long serialVersionUID = -4530028594283254202L;
@@ -323,7 +331,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 服务位置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Location implements Serializable {
         private static final long serialVersionUID = 275418943155817014L;
@@ -350,7 +360,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 订单风险金
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class RiskFund implements Serializable {
         private static final long serialVersionUID = 5853198509551872666L;
@@ -386,7 +398,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 收款信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Collection implements Serializable {
         private static final long serialVersionUID = -6425746106571022141L;
@@ -440,7 +454,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 收款明细
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Detail implements Serializable {
         private static final long serialVersionUID = 399893006872476354L;
@@ -503,7 +519,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Promotion implements Serializable {
         private static final long serialVersionUID = -4548270935733744595L;
@@ -611,7 +629,9 @@ public class WxPayScoreServiceOrderStateResult extends BaseWxPayV3Result {
     /**
      * 单品
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Goods implements Serializable {
         private static final long serialVersionUID = 8205243700113245772L;

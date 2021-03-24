@@ -5,7 +5,7 @@ import com.github.songxzj.wxpay.v2.bean.result.micro.WxRiskGetCertficatesResult;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -19,7 +19,9 @@ import java.util.Map;
  *//*
 
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

@@ -6,7 +6,7 @@ import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.util.SignUtils;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -14,7 +14,9 @@ import java.io.Serializable;
 /**
  * APP支付
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class WxPayAppOrderData implements Serializable {
     private static final long serialVersionUID = -3997925111530175505L;
 

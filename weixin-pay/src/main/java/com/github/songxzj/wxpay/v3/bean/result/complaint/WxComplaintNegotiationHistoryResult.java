@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.complaint;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxComplaintNegotiationHistoryResult extends BaseWxPayV3Result {
@@ -24,7 +26,9 @@ public class WxComplaintNegotiationHistoryResult extends BaseWxPayV3Result {
     @SerializedName("complaint_negotiation_history")
     private List<ComplaintNegotiationHistory> complaintNegotiationHistoryList;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ComplaintNegotiationHistory implements Serializable {
         private static final long serialVersionUID = 9145286028492800183L;

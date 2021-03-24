@@ -24,7 +24,9 @@ import java.util.List;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_4_9.shtml">
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_5_9.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -109,7 +111,9 @@ public class WxPayTransactionsRefundRequest extends BaseWxPayV3Request<WxPayTran
     /**
      * 金额信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -153,7 +157,9 @@ public class WxPayTransactionsRefundRequest extends BaseWxPayV3Request<WxPayTran
     }
 
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

@@ -14,7 +14,9 @@ import org.springframework.http.HttpMethod;
  * 预受理领卡请求API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_3_1.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

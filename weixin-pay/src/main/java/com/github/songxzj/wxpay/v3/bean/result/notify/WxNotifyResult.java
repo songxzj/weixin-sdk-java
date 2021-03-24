@@ -2,13 +2,15 @@ package com.github.songxzj.wxpay.v3.bean.result.notify;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxNotifyResult<T extends BaseWxPayV3Result> extends BaseWxPayV3Result {
@@ -76,7 +78,9 @@ public class WxNotifyResult<T extends BaseWxPayV3Result> extends BaseWxPayV3Resu
     /**
      * 通知数据
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Resource implements Serializable {
         private static final long serialVersionUID = -8878853020585554882L;

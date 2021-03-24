@@ -2,7 +2,7 @@ package com.github.songxzj.wxpay.v3.bean.result.discountcard;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +15,9 @@ import java.util.List;
  * 守约状态变化通知（https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_3_5.shtml）
  * 扣费状态变化通知（https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_3_6.shtml）
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxDiscountCardStateResult extends BaseWxPayV3Result {
@@ -161,7 +163,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 约定时间期限
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class TimeRange implements Serializable {
         private static final long serialVersionUID = -5197766032343314836L;
@@ -188,7 +192,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 用户退回优惠的付款信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PayInformation implements Serializable {
         private static final long serialVersionUID = -8515255469937605299L;
@@ -233,7 +239,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 目标
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Objective implements Serializable {
         private static final long serialVersionUID = 655402768381093786L;
@@ -296,7 +304,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 目标完成记录
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ObjectiveCompletionRecord implements Serializable {
         private static final long serialVersionUID = 3414681795236156844L;
@@ -368,7 +378,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 优惠列表
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Reward implements Serializable {
         private static final long serialVersionUID = -7280505139236895590L;
@@ -449,7 +461,9 @@ public class WxDiscountCardStateResult extends BaseWxPayV3Result {
     /**
      * 优惠使用记录
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class RewardUsageRecord implements Serializable {
         private static final long serialVersionUID = 7451102094175731206L;

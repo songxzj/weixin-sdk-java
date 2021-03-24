@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.external.payscore;
 
 import com.github.songxzj.wxpay.v3.bean.external.payscore.enums.PayScoreBusinessTypeEnum;
 import com.github.songxzj.wxpay.v3.bean.external.payscore.extra.AbstractWxPayScoreV3ExtraData;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
 /**
  * 小程序调起支付分(openBusinessView)
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class WxPayScoreV3MiniProgramData implements Serializable {
     private static final long serialVersionUID = 944183053229361318L;
 

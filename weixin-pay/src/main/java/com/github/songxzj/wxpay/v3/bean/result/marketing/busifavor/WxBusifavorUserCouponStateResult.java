@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.busifavor;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
@@ -192,7 +194,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 核销规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CouponUseRule implements Serializable {
         private static final long serialVersionUID = -8613918476565743734L;
@@ -259,7 +263,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 自定义入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CustomEntrance implements Serializable {
         private static final long serialVersionUID = -3538686841966657503L;
@@ -313,7 +319,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 小程序入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class MiniProgramsInfo implements Serializable {
         private static final long serialVersionUID = 2998924458569580428L;
@@ -357,7 +365,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 样式信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class DisplayPatternInfo implements Serializable {
         private static final long serialVersionUID = 9207371190836685397L;
@@ -411,7 +421,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 固定面额满减券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class FixedNormalCoupon implements Serializable {
         private static final long serialVersionUID = -6515515122305537108L;
@@ -438,7 +450,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 折扣券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class DiscountCoupon implements Serializable {
         private static final long serialVersionUID = -6739190491283862684L;
@@ -465,7 +479,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 换购券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ExchangeCoupon implements Serializable {
         private static final long serialVersionUID = -8239681834729409044L;
@@ -493,7 +509,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 券可核销时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CouponAvailableTime implements Serializable {
         private static final long serialVersionUID = 9032402444895288640L;
@@ -556,7 +574,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 固定周期有效时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AvailableWeek implements Serializable {
         private static final long serialVersionUID = -5234961816985367581L;
@@ -583,7 +603,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 当天可用时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AvailableDayTime implements Serializable {
         private static final long serialVersionUID = -45866392533126659L;
@@ -609,7 +631,9 @@ public class WxBusifavorUserCouponStateResult extends BaseWxPayV3Result {
     /**
      * 无规律的有效时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class IrregularyAvaliableTime implements Serializable {
         private static final long serialVersionUID = -7522745903667624121L;

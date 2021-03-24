@@ -3,14 +3,16 @@ package com.github.songxzj.wxpay.v3.bean.result.smartguide;
 import com.github.songxzj.common.annotation.SensitiveEncrypt;
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxSmartGuideQueryResult extends BaseWxPayV3Result {
@@ -61,7 +63,9 @@ public class WxSmartGuideQueryResult extends BaseWxPayV3Result {
     /**
      * 服务人员
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Guide implements Serializable {
         private static final long serialVersionUID = -625929242690332454L;

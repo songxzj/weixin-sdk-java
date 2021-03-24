@@ -20,7 +20,9 @@ import java.util.List;
  * 修改订单金额API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_17.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -133,7 +135,9 @@ public class WxPayScoreServiceOrderModifyRequest extends BaseWxPayV3Request<WxPa
     /**
      * 后付费项目
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -188,7 +192,9 @@ public class WxPayScoreServiceOrderModifyRequest extends BaseWxPayV3Request<WxPa
     /**
      * 后付费商户优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

@@ -20,7 +20,9 @@ import java.util.List;
  * 完结支付分订单API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_18.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -164,7 +166,9 @@ public class WxPayScoreServiceOrderCompleteRequest extends BaseWxPayV3Request<Wx
     /**
      * 后付费项目
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -219,7 +223,9 @@ public class WxPayScoreServiceOrderCompleteRequest extends BaseWxPayV3Request<Wx
     /**
      * 后付费商户优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -274,7 +280,9 @@ public class WxPayScoreServiceOrderCompleteRequest extends BaseWxPayV3Request<Wx
     /**
      * 服务时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -327,7 +335,9 @@ public class WxPayScoreServiceOrderCompleteRequest extends BaseWxPayV3Request<Wx
     /**
      * 服务位置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.paygiftactivity;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayGiftActivityMerchantStateResult extends BaseWxPayV3Result {
@@ -63,7 +65,9 @@ public class WxPayGiftActivityMerchantStateResult extends BaseWxPayV3Result {
     /**
      * 商户信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Merchant implements Serializable {
         private static final long serialVersionUID = -8477977013278363941L;

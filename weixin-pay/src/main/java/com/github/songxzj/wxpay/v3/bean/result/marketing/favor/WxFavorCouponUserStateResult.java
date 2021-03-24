@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.favor;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
@@ -171,7 +173,9 @@ public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
     /**
      * 单品优惠特定信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CutToMessage implements Serializable {
         private static final long serialVersionUID = 550551054089500055L;
@@ -198,7 +202,9 @@ public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
     /**
      * 减至优惠特定信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class DiscountTo implements Serializable {
         private static final long serialVersionUID = -1186665114277957870L;
@@ -227,7 +233,9 @@ public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
     /**
      * 满减券信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class NormalCouponInformation implements Serializable {
         private static final long serialVersionUID = -5311645073607562949L;
@@ -254,7 +262,9 @@ public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
     /**
      * 已实扣代金券核销信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ConsumeInformation implements Serializable {
         private static final long serialVersionUID = 550551054089500055L;
@@ -300,7 +310,9 @@ public class WxFavorCouponUserStateResult extends BaseWxPayV3Result {
     /**
      * 单品信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Goods implements Serializable {
         private static final long serialVersionUID = -7806617141591327144L;

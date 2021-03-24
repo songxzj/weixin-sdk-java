@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.payscore;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
@@ -153,7 +155,9 @@ public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
     /**
      * 后付费项目
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostPayment implements Serializable {
         private static final long serialVersionUID = -7928812008538409640L;
@@ -198,7 +202,9 @@ public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
     /**
      * 后付费商户优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostDiscount implements Serializable {
         private static final long serialVersionUID = -60421548886564402L;
@@ -243,7 +249,9 @@ public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
     /**
      * 服务时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class TimeRange implements Serializable {
         private static final long serialVersionUID = 1993758978383505748L;
@@ -288,7 +296,9 @@ public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
     /**
      * 服务位置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Location implements Serializable {
         private static final long serialVersionUID = 2943909770239149742L;
@@ -315,7 +325,9 @@ public class WxPayScoreServiceOrderCompleteResult extends BaseWxPayV3Result {
     /**
      * 订单风险金
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class RiskFund implements Serializable {
         private static final long serialVersionUID = -1409079458468168707L;

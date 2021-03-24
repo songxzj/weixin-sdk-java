@@ -20,7 +20,9 @@ import java.util.List;
  * 商户开户意愿提交申请单API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/applysubject/chapter5_1.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -114,7 +116,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 主体信息
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -212,7 +216,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 特殊行业的经营许可证信息
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -252,7 +258,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 辅助证明材料信息
      * 主体类型为小微商户时，辅助证明材料信息必填。
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -330,7 +338,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 营业执照信息
      * 主体类型为企业或个体户时，营业执照信息必填
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -412,7 +422,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 主体类型为事业单位或其他组织时，登记证书信息必填。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -502,7 +514,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 联系人是商户的超级管理员，将接收开户信息及日常重要管理信息，请确定超级管理员为商户法定代表人或负责人再进行操作。如超级管理员非商户法定代表人或负责人，请联系法定代表人或负责人提交申请。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -555,7 +569,9 @@ public class WxApplymentAuthorizeSubRequest extends BaseWxPayV3Request<WxApplyme
      * 法人身份信息
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

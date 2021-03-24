@@ -2,9 +2,7 @@ package com.github.songxzj.wxpay.v3.bean.result.pay;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +16,9 @@ import java.util.List;
  * （https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_4_11.shtml）
  * （https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_5_11.shtml）
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
@@ -154,7 +154,9 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
     /**
      * 金额信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Amount implements Serializable {
         private static final long serialVersionUID = -4142251093840360550L;
@@ -235,7 +237,9 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
     /**
      * 优惠退款信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PromotionDetail implements Serializable {
         private static final long serialVersionUID = 5146362153277536357L;
@@ -298,7 +302,9 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
     /**
      * 商品列表
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class GoodsDetail implements Serializable {
         private static final long serialVersionUID = -6312153501203854971L;

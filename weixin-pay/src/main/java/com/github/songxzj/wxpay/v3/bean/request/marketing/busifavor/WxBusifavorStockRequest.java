@@ -18,7 +18,9 @@ import java.util.List;
  * 创建商家券API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_1.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -183,7 +185,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 核销规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -272,7 +276,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -362,7 +368,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 自定义入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -427,7 +435,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 小程序入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -484,7 +494,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 样式信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -547,7 +559,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 事件通知配置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -573,7 +587,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 固定面额满减券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -613,7 +629,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 折扣券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -651,7 +669,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 换购券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -692,7 +712,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 券可核销时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -773,7 +795,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 固定周期有效时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -815,7 +839,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
     /**
      * 当天可用时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -847,7 +873,9 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

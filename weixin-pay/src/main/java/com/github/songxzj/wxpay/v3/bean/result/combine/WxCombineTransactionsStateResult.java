@@ -2,7 +2,7 @@ package com.github.songxzj.wxpay.v3.bean.result.combine;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +13,9 @@ import java.util.List;
  * 通用如下：
  * 支付通知（https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter5_1_13.shtml）
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
@@ -77,7 +79,9 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class SceneInfo implements Serializable {
         private static final long serialVersionUID = 7573674519776180059L;
@@ -95,7 +99,9 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 子单信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class SubOrder implements Serializable {
         private static final long serialVersionUID = 9213074386247061216L;
@@ -195,7 +201,9 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 订单金额
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Amount implements Serializable {
         private static final long serialVersionUID = 6412751184390720459L;
@@ -239,7 +247,9 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 支付者
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CombinePayerInfo implements Serializable {
         private static final long serialVersionUID = -1514375948726783878L;

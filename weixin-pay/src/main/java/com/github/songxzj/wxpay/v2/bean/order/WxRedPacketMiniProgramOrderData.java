@@ -7,7 +7,7 @@ import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.constant.WxPayConstants;
 import com.github.songxzj.wxpay.util.SignUtils;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -17,7 +17,9 @@ import java.net.URLEncoder;
 /**
  * 领取小程序红包
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class WxRedPacketMiniProgramOrderData implements Serializable {
     private static final long serialVersionUID = -6538734571124813526L;
 

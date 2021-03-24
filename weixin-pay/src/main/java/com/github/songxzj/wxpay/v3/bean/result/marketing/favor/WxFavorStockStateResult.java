@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.favor;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxFavorStockStateResult extends BaseWxPayV3Result {
@@ -163,7 +165,9 @@ public class WxFavorStockStateResult extends BaseWxPayV3Result {
     /**
      * 满减券批次使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class StockUseRule implements Serializable {
         private static final long serialVersionUID = -9128962197745232550L;
@@ -253,7 +257,9 @@ public class WxFavorStockStateResult extends BaseWxPayV3Result {
     /**
      * 固定面额批次特定信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class FixedNormalCoupon implements Serializable {
         private static final long serialVersionUID = 8332673421708430553L;
@@ -280,7 +286,9 @@ public class WxFavorStockStateResult extends BaseWxPayV3Result {
     /**
      * 单品优惠特定信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class CutToMessage implements Serializable {
         private static final long serialVersionUID = 6017921618052748498L;

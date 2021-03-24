@@ -18,7 +18,9 @@ import java.util.List;
  * 创建全场满额送活动API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/paygiftactivity/chapter3_2.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -87,7 +89,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 活动基本信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -213,7 +217,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 可用时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -258,7 +264,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 可用时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -296,7 +304,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 每日可用时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -333,7 +343,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 活动奖品发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -414,7 +426,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 奖品基本信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -460,7 +474,9 @@ public class WxPayGiftActivityRequest extends BaseWxPayV3Request<WxPayGiftActivi
     /**
      * 活动高级设置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

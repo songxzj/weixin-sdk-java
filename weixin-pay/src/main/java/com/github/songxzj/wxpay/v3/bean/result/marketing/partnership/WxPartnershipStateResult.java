@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.partnership;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPartnershipStateResult extends BaseWxPayV3Result {
@@ -55,7 +57,9 @@ public class WxPartnershipStateResult extends BaseWxPayV3Result {
     /**
      * 合作关系
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Partnership implements Serializable {
         private static final long serialVersionUID = 5929689478214434291L;
@@ -119,7 +123,9 @@ public class WxPartnershipStateResult extends BaseWxPayV3Result {
     /**
      * 合作方信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Partner implements Serializable {
         private static final long serialVersionUID = -9084305331814876833L;
@@ -155,7 +161,9 @@ public class WxPartnershipStateResult extends BaseWxPayV3Result {
     /**
      * 被授权数据
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AuthorizedData implements Serializable {
         private static final long serialVersionUID = 4528230286557923678L;

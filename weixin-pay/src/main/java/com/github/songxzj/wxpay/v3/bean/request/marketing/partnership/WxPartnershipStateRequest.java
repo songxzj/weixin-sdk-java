@@ -19,7 +19,9 @@ import java.net.URLEncoder;
  * 查询合作关系列表API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/partnerships/chapter3_3.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -104,7 +106,9 @@ public class WxPartnershipStateRequest extends BaseWxPayV3Request<WxPartnershipS
     /**
      * 合作方信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -148,7 +152,9 @@ public class WxPartnershipStateRequest extends BaseWxPayV3Request<WxPartnershipS
     /**
      * 被授权数据
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

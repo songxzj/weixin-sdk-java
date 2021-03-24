@@ -3,12 +3,14 @@ package com.github.songxzj.wxpay.v3.bean.cert;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Data
+@Setter
+@Getter
+@ToString
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -52,7 +54,9 @@ public class WxPayV3Certificate implements Serializable {
 
     private String certificateStr;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class EncryptV3Certificate implements Serializable {
         private static final long serialVersionUID = 8098660117605659126L;

@@ -2,12 +2,14 @@ package com.github.songxzj.wxpay.v2.bean.result.notify;
 
 import com.github.songxzj.wxpay.v2.bean.result.BaseWxPayResult;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.w3c.dom.Document;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @XStreamAlias("xml")
@@ -35,7 +37,9 @@ public class WxPayRefundNotifyResult extends BaseWxPayResult {
     /**
      * 加密信息字段解密后的内容.
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @NoArgsConstructor
     @XStreamAlias("root")

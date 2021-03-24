@@ -19,7 +19,9 @@ import java.util.List;
  * 合单关闭订单API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter5_1_12.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -63,7 +65,9 @@ public class WxCombineTransactionsCloseRequest extends BaseWxPayV3Request<WxComb
     /**
      * 子单信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

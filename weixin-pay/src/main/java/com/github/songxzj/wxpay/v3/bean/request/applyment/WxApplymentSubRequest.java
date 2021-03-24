@@ -22,7 +22,9 @@ import java.util.List;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/tool/applyment4sub/chapter3_1.shtml">
  */
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -140,7 +142,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 超级管理员需在开户后进行签约，并接收日常重要管理信息和进行资金操作，请确定其为商户法定代表人或负责人。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -211,7 +215,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 请填写商家的结算费率规则、特殊资质等信息。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -288,7 +294,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 根据实际审核情况，额外要求商家提供指定的补充资料。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -344,7 +352,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 2、若结算规则id为“719、721、716、717、730、739、727、738、726”，可选填结算账户。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -432,7 +442,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * query请填写商家的经营业务信息、售卖商品/提供服务场景信息。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -484,7 +496,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 请根据实际经营情况，填写经营场景
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -600,7 +614,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 请填写商家的营业执照/登记证书、经营者/法人的证件等信息。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -709,7 +725,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 2、请上传“营业执照”，需年检章齐全，当年注册除外。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -771,7 +789,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 2、其他组织：请上传相关部门颁发的证书，如：社会团体法人登记证书、民办非企业单位登记证书、基金会法人登记证书。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -871,7 +891,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 2、企业/党政、机关及事业单位/其他组织：请上传法人的身份证件。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -942,7 +964,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 条件选填	主体为企业/党政、机关及事业单位/其他组织，且证件号码不是18位时必填。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1007,7 +1031,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
      * 3、公司的高级管理人员，包括公司的经理、副经理、财务负责人、上市公司董事会秘书和公司章程规定的其他人员。
      */
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1110,7 +1136,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1184,7 +1212,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1224,7 +1254,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1264,7 +1296,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1307,7 +1341,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1349,7 +1385,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1382,7 +1420,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -1457,7 +1497,9 @@ public class WxApplymentSubRequest extends BaseWxPayV3Request<WxApplymentSubResu
     }
 
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

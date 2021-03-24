@@ -7,13 +7,15 @@ import com.github.songxzj.common.json.WxGsonBuilder;
 import com.github.songxzj.common.util.WxBeanUtils;
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 import java.io.Serializable;
 
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(chain = true)
 public abstract class BaseWxPayV3Request<T extends BaseWxPayV3Result> implements Serializable {
     private static final long serialVersionUID = -501560305156478941L;

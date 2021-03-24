@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.applyment;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxApplymentSubStateResult extends BaseWxPayV3Result {
@@ -84,7 +86,9 @@ public class WxApplymentSubStateResult extends BaseWxPayV3Result {
     /**
      * 驳回原因详情
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AuditDetail implements Serializable {
         private static final long serialVersionUID = 4909218873339164626L;

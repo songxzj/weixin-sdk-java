@@ -7,7 +7,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -25,7 +25,9 @@ import java.util.Map;
 /**
  * 微信支付结果共用属性类.
  */
-@Data
+@Setter
+@Getter
+@ToString
 public abstract class BaseWxPayResult implements Serializable {
     private static final long serialVersionUID = -6073353956986210229L;
     /**

@@ -4,7 +4,7 @@ import com.github.songxzj.wxpay.v2.bean.result.BaseWxPayResult;
 import com.google.common.collect.Lists;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.w3c.dom.Document;
@@ -12,7 +12,9 @@ import org.w3c.dom.Document;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @XStreamAlias("xml")
@@ -228,7 +230,9 @@ public class WxPayRefundResult extends BaseWxPayResult {
     /**
      * 退款代金券信息.
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     @AllArgsConstructor
     public class WxPayRefundCouponInfo implements Serializable {

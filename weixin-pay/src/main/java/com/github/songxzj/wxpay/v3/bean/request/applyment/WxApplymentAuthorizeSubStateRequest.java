@@ -14,7 +14,9 @@ import org.springframework.http.HttpMethod;
  * 获取商户开户意愿查询申请单审核结果API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/applysubject/chapter5_3.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

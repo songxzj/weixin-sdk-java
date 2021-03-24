@@ -29,7 +29,9 @@ import java.util.List;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter7_1_1.shtml">
  *//*
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -273,7 +275,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
      * 营业执照/登记证书信息
      *//*
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -362,7 +366,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
      * 组织机构代码证信息
      *//*
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -416,7 +422,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
      * 经营者/法人身份证信息
      *//*
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -497,7 +505,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
      * 经营者/法人其他类型证件信息
      *//*
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -565,7 +575,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
         }
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AccountInfo implements Serializable {
         */
@@ -692,7 +704,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
 
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ContactInfo implements Serializable {
         */
@@ -791,7 +805,9 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
 
     }
 
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class SalesSceneInfo implements Serializable {
         */

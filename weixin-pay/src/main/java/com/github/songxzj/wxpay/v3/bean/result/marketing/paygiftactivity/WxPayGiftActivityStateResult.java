@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.paygiftactivity;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
@@ -127,7 +129,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 活动基本信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class ActivityBaseInfo implements Serializable {
         private static final long serialVersionUID = -7472664129710707944L;
@@ -236,7 +240,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 可用时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AvailablePeriods implements Serializable {
         private static final long serialVersionUID = -8747136358163835855L;
@@ -265,7 +271,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 可用时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AvailableTime implements Serializable {
         private static final long serialVersionUID = 6237262836339373554L;
@@ -294,7 +302,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 每日可用时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AvailableDayTime implements Serializable {
         private static final long serialVersionUID = -8422621420719839226L;
@@ -322,7 +332,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 活动奖品发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AwardSendRule implements Serializable {
         private static final long serialVersionUID = 6213637047235661684L;
@@ -340,7 +352,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 满送活动奖品发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class FullSendRule implements Serializable {
         private static final long serialVersionUID = -3875404743366802909L;
@@ -403,7 +417,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 奖品基本信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Award implements Serializable {
         private static final long serialVersionUID = 8575998767536135560L;
@@ -440,7 +456,9 @@ public class WxPayGiftActivityStateResult extends BaseWxPayV3Result {
     /**
      * 活动高级设置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class AdvancedSetting implements Serializable {
         private static final long serialVersionUID = -1089560916351530804L;

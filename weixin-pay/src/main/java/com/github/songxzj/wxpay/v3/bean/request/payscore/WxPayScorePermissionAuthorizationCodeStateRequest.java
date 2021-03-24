@@ -14,7 +14,9 @@ import org.springframework.http.HttpMethod;
  * 查询用户授权记录（授权协议号）API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_3.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

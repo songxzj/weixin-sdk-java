@@ -15,7 +15,9 @@ import org.springframework.http.HttpMethod;
  * 建立合作关系API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/partnerships/chapter3_1.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -72,7 +74,9 @@ public class WxPartnershipBuildRequest extends BaseWxPayV3Request<WxPartnershipB
     /**
      * 合作方信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -115,7 +119,9 @@ public class WxPartnershipBuildRequest extends BaseWxPayV3Request<WxPartnershipB
     /**
      * 被授权数据
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

@@ -18,7 +18,9 @@ import java.util.List;
  * 增加用户记录API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_3_2.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -100,7 +102,9 @@ public class WxDiscountCardAddUserRequest extends BaseWxPayV3Request<WxDiscountC
     /**
      * 目标完成记录
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -185,7 +189,9 @@ public class WxDiscountCardAddUserRequest extends BaseWxPayV3Request<WxDiscountC
     /**
      * 优惠使用记录
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

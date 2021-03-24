@@ -16,7 +16,9 @@ import org.springframework.http.HttpMethod;
  * 同步服务订单信息API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_20.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -100,7 +102,9 @@ public class WxPayScoreServiceOrderSyncRequest extends BaseWxPayV3Request<WxPayS
     /**
      * 内容信息详情
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

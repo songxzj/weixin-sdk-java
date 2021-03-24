@@ -30,7 +30,9 @@ import java.util.List;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter4_4_1.shtml">
  */
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -194,7 +196,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 结算信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -220,7 +224,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 订单金额
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -256,7 +262,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 支付者
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -291,7 +299,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 优惠功能
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -341,7 +351,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 单品列表
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -404,7 +416,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -464,7 +478,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * 商户门店信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -516,7 +532,9 @@ public class WxPayPartnerTransactionsRequest extends BaseWxPayV3Request<WxPayTra
     /**
      * H5场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

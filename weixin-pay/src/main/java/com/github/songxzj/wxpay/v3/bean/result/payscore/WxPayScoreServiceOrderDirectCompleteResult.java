@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.payscore;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayScoreServiceOrderDirectCompleteResult extends BaseWxPayV3Result {
@@ -152,7 +154,9 @@ public class WxPayScoreServiceOrderDirectCompleteResult extends BaseWxPayV3Resul
     /**
      * 后付费项目
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostPayment implements Serializable {
         private static final long serialVersionUID = -5677872145131567760L;
@@ -197,7 +201,9 @@ public class WxPayScoreServiceOrderDirectCompleteResult extends BaseWxPayV3Resul
     /**
      * 后付费商户优惠
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PostDiscount implements Serializable {
         private static final long serialVersionUID = -4054490861650115309L;
@@ -242,7 +248,9 @@ public class WxPayScoreServiceOrderDirectCompleteResult extends BaseWxPayV3Resul
     /**
      * 服务时间段
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class TimeRange implements Serializable {
         private static final long serialVersionUID = -3398591334197973741L;
@@ -287,7 +295,9 @@ public class WxPayScoreServiceOrderDirectCompleteResult extends BaseWxPayV3Resul
     /**
      * 服务位置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Location implements Serializable {
         private static final long serialVersionUID = 6775463711721993067L;

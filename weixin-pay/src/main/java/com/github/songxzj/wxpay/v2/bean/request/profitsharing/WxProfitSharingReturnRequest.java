@@ -19,7 +19,9 @@ import java.util.Map;
  * 服务商
  * <a href="https://pay.weixin.qq.com/wiki/doc/api/allocation_sl.php?chapter=25_7&index=9">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

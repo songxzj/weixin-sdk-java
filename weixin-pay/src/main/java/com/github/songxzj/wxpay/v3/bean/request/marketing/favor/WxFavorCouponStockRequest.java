@@ -18,7 +18,9 @@ import java.util.List;
  * 创建代金券批次API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/convention/chapter3_1.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -175,7 +177,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -264,7 +268,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 样式设置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -328,7 +334,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 核销规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -458,7 +466,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 券生效时间
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -504,7 +514,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 固定面额满减券使用规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -547,7 +559,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 指定银行卡BIN
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -585,7 +599,9 @@ public class WxFavorCouponStockRequest extends BaseWxPayV3Request<WxFavorCouponS
     /**
      * 固定时间段可用
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

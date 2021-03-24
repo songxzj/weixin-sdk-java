@@ -5,7 +5,7 @@ import cn.hutool.core.util.RandomUtil;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.util.SignUtils;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -14,7 +14,9 @@ import java.security.PrivateKey;
 /**
  * JSAPI/小程序支付
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class WxPayV3JsapiOrderData implements Serializable {
     private static final long serialVersionUID = 7566617252319722544L;
 

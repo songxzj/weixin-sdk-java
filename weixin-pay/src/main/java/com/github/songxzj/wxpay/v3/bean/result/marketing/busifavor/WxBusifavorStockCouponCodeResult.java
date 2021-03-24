@@ -2,14 +2,16 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.busifavor;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxBusifavorStockCouponCodeResult extends BaseWxPayV3Result {
@@ -99,7 +101,9 @@ public class WxBusifavorStockCouponCodeResult extends BaseWxPayV3Result {
     /**
      * 上传失败的code及原因
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class FailCode implements Serializable {
         private static final long serialVersionUID = -4315965925633634778L;

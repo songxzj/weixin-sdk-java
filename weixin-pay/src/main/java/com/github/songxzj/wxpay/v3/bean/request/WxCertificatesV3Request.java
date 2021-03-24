@@ -3,13 +3,15 @@ package com.github.songxzj.wxpay.v3.bean.request;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.wxpay.v3.bean.result.WxCertificatesV3Result;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

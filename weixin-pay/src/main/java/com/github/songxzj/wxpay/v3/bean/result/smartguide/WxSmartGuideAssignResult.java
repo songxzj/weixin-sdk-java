@@ -1,11 +1,13 @@
 package com.github.songxzj.wxpay.v3.bean.result.smartguide;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxSmartGuideAssignResult extends BaseWxPayV3Result {

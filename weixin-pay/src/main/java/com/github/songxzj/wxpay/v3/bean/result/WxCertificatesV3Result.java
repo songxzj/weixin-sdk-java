@@ -3,7 +3,7 @@ package com.github.songxzj.wxpay.v3.bean.result;
 import com.github.songxzj.wxpay.v3.bean.cert.WxPayV3Certificate;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.apache.commons.beanutils.BeanComparator;
@@ -15,7 +15,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxCertificatesV3Result extends BaseWxPayV3Result {

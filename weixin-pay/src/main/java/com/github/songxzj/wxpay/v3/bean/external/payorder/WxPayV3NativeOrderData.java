@@ -1,14 +1,16 @@
 package com.github.songxzj.wxpay.v3.bean.external.payorder;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
 /**
  * Native支付
  */
-@Data
+@Setter
+@Getter
+@ToString
 @Builder
 public class WxPayV3NativeOrderData implements Serializable {
     private static final long serialVersionUID = -7084791652535361321L;

@@ -8,7 +8,7 @@ import com.github.songxzj.wxpay.v2.bean.result.BaseWxPayResult;
 import com.google.common.collect.Maps;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -22,7 +22,9 @@ import java.util.Map;
 /**
  * 微信支付请求对象共用的参数存放类
  */
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(chain = true)
 public abstract class BaseWxPayRequest<T extends BaseWxPayResult> implements Serializable {
     private static final long serialVersionUID = -4766915659779847060L;

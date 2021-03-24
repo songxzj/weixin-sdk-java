@@ -21,7 +21,9 @@ import org.springframework.http.HttpMethod;
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter4_5_3.shtml">
  */
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

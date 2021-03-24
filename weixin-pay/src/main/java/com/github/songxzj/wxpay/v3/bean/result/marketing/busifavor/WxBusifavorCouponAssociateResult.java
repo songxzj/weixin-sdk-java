@@ -2,11 +2,13 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.busifavor;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxBusifavorCouponAssociateResult extends BaseWxPayV3Result {

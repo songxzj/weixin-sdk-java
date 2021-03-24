@@ -3,13 +3,15 @@ package com.github.songxzj.wxpay.v3.bean.result;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.common.json.WxGsonBuilder;
-import lombok.Data;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 
 
-@Data
+@Setter
+@Getter
+@ToString
 @Slf4j
 public abstract class BaseWxPayV3Result implements Serializable {
     private static final long serialVersionUID = 7765784097135990901L;

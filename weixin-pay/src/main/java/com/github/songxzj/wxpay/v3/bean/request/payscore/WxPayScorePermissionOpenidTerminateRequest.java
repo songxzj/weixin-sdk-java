@@ -15,7 +15,9 @@ import org.springframework.http.HttpMethod;
  * 解除用户授权关系（openid）API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_6.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor

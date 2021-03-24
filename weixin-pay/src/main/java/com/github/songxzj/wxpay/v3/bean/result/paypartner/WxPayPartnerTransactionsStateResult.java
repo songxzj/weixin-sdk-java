@@ -2,7 +2,7 @@ package com.github.songxzj.wxpay.v3.bean.result.paypartner;
 
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +13,9 @@ import java.util.List;
  * 通用如下：
  * 支付通知（https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/pay/transactions/chapter5_11.shtml）
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
@@ -167,7 +169,9 @@ public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 场景信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class SceneInfo implements Serializable {
         private static final long serialVersionUID = 6470631386723741309L;
@@ -184,7 +188,9 @@ public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 支付者
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Payer implements Serializable {
         private static final long serialVersionUID = -6219351812130271158L;
@@ -210,7 +216,9 @@ public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 订单金额
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class Amount implements Serializable {
         private static final long serialVersionUID = 1147456185347879238L;
@@ -257,7 +265,9 @@ public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 优惠功能
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class PromotionDetail implements Serializable {
         private static final long serialVersionUID = -3120568670426727370L;
@@ -364,7 +374,9 @@ public class WxPayPartnerTransactionsStateResult extends BaseWxPayV3Result {
     /**
      * 单品列表
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @NoArgsConstructor
     public static class GoodsDetail implements Serializable {
         private static final long serialVersionUID = 6801463866895472029L;

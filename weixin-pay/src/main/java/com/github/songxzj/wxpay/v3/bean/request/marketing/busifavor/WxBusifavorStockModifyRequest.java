@@ -16,7 +16,9 @@ import org.springframework.http.HttpMethod;
  * 修改商家券基本信息API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_12.shtml">
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Builder(builderMethodName = "newBuilder")
 @NoArgsConstructor
@@ -158,7 +160,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 自定义入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -214,7 +218,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 小程序入口
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -271,7 +277,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 样式信息
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -334,7 +342,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 核销规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -378,7 +388,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 发放规则
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -413,7 +425,9 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     /**
      * 事件通知配置
      */
-    @Data
+    @Setter
+@Getter
+@ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
