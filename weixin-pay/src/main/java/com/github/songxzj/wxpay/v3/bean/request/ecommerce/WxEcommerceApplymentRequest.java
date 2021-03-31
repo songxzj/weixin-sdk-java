@@ -1,4 +1,3 @@
-//todo 只完成一半
 package com.github.songxzj.wxpay.v3.bean.request.ecommerce;
 
 import com.github.songxzj.common.annotation.Required;
