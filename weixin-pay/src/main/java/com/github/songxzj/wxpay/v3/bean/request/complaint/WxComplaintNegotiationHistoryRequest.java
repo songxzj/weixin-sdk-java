@@ -10,9 +10,9 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.1.8
+ * version:2021.08.27
  * 查询投诉协商历史API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/tool/merchant-service/chapter3_7.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter10_2_12.shtml">
  */
 @Setter
 @Getter
@@ -26,18 +26,43 @@ public class WxComplaintNegotiationHistoryRequest extends BaseWxPayV3Request<WxC
     private static final long serialVersionUID = -8038225318162310743L;
 
     /**
-     * 微信支付订单号
-     * transaction_id
+     * 投诉单号
+     * complaint_id
      * string[1, 64]
      * 是
      */
     @Required
-    @SerializedName("transaction_id")
-    private String transactionId;
+    @SerializedName("complaint_id")
+    private String complaintId;
+
+    /**
+     * 分页大小
+     * limit
+     * int
+     * 否
+     */
+    @SerializedName("limit")
+    private Integer limit;
+
+    /**
+     * 分页开始位置
+     * offset
+     * int
+     * 否
+     */
+    @SerializedName("offset")
+    private Integer offset;
 
     @Override
     public String routing() {
-        return "/v3/merchant-service/complaints/" + this.transactionId + "/negotiation-historys";
+        StringBuffer routing = new StringBuffer("/v3/merchant-service/complaints-v2/").append(this.complaintId).append("/negotiation-historys");
+        if (this.limit != null) {
+            routing.append("&limit=").append(this.limit);
+        }
+        if (this.offset != null) {
+            routing.append("&offset=").append(this.offset);
+        }
+        return routing.toString();
     }
 
     @Override

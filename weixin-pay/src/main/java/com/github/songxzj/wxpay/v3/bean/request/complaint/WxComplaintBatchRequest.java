@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2020.11.27
+ * version:2021.08.27
  * 查询投诉单列表API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/tool/merchant-service/chapter3_1.shtml">
  */
@@ -55,15 +55,6 @@ public class WxComplaintBatchRequest extends BaseWxPayV3Request<WxComplaintBatch
     private String beginDate;
 
     /**
-     * 特约商户号
-     * sub_mchid
-     * string[1,64]
-     * 否
-     */
-    @SerializedName("sub_mchid")
-    private String subMchid;
-
-    /**
      * 结束日期
      * end_date
      * string[1,10]
@@ -73,17 +64,26 @@ public class WxComplaintBatchRequest extends BaseWxPayV3Request<WxComplaintBatch
     @SerializedName("end_date")
     private String endDate;
 
+    /**
+     * 被诉商户号
+     * complainted_mchid
+     * string[1, 64]
+     * 否
+     */
+    @SerializedName("complainted_mchid")
+    private String complaintedMchid;
+
     @Override
     public String routing() {
-        StringBuffer routing = new StringBuffer("/v3/merchant-service/complaints?begin_date=").append(this.beginDate).append("&end_date=").append(this.endDate);
+        StringBuffer routing = new StringBuffer("/v3/merchant-service/complaints-v2?begin_date=").append(this.beginDate).append("&end_date=").append(this.endDate);
         if (this.limit != null) {
             routing.append("&limit=").append(this.limit);
         }
         if (this.offset != null) {
             routing.append("&offset=").append(this.offset);
         }
-        if (!StringUtils.isBlank(this.subMchid)) {
-            routing.append("&sub_mchid=").append(this.subMchid);
+        if (!StringUtils.isBlank(this.complaintedMchid)) {
+            routing.append("&complainted_mchid=").append(this.complaintedMchid);
         }
 
         return routing.toString();

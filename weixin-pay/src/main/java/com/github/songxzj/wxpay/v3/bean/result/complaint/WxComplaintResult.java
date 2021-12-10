@@ -4,8 +4,9 @@ import com.github.songxzj.common.annotation.SensitiveEncrypt;
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
@@ -16,13 +17,13 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     private static final long serialVersionUID = 5849490199054029039L;
 
     /**
-     * 商户订单号
-     * out_trade_no
-     * string[1,64]
+     * 投诉单号
+     * complaint_id
+     * string[1, 64]
      * 是
      */
-    @SerializedName("out_trade_no")
-    private String outTradeNo;
+    @SerializedName("complaint_id")
+    private String complaintId;
 
     /**
      * 投诉时间
@@ -34,13 +35,31 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     private String complaintTime;
 
     /**
-     * 投诉金额
-     * amount
-     * uint64
+     * 投诉详情
+     * complaint_detail
+     * string[1,300]
      * 是
      */
-    @SerializedName("amount")
-    private Integer amount;
+    @SerializedName("complaint_detail")
+    private String complaintDetail;
+
+    /**
+     * 被诉商户号
+     * complainted_mchid
+     * string[1, 64]
+     * 否
+     */
+    @SerializedName("complainted_mchid")
+    private String complaintedMchid;
+
+    /**
+     * 投诉单状态
+     * complaint_state
+     * string[1,30]
+     * 否
+     */
+    @SerializedName("complaint_state")
+    private String complaintState;
 
     /**
      * 投诉人联系方式
@@ -53,67 +72,140 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     private String payerPhone;
 
     /**
-     * 投诉描述
-     * complaint_detail
-     * string[1,300]
+     * 投诉人openid
+     * payer_openid
+     * string[1, 128]
      * 是
      */
-    @SerializedName("complaint_detail")
-    private String complaintDetail;
+    @SerializedName("payer_openid")
+    private String payerOpenid;
+
 
     /**
-     * 投诉单状态
-     * complaint_state
-     * string[1,30]
-     * 否
-     */
-    @SerializedName("complaint_state")
-    private String complaintState;
-
-    /**
-     * 微信订单号
-     * transaction_id
-     * string[1,64]
+     * 投诉资料列表
+     * complaint_media_list
+     * array
      * 是
      */
-    @SerializedName("transaction_id")
-    private String transactionId;
+    @SerializedName("complaint_media_list")
+    private List<ComplaintMedia> complaintMediaList;
+
 
     /**
-     * 冻结结束时间
-     * frozen_end_time
-     * string[1,32]
-     * 否
-     */
-    @SerializedName("frozen_end_time")
-    private String frozenEndTime;
-
-    /**
-     * 特约商户号
-     * sub_mchid
-     * string[1,64]
-     * 否
-     */
-    @SerializedName("sub_mchid")
-    private String subMchid;
-
-    /**
-     * 投诉单处理进展状态
-     * complaint_handle_state
-     * string[1, 64]
+     * 投诉单关联订单信息
+     * complaint_order_info
+     * array
      * 是
      */
-    @SerializedName("complaint_handle_state")
-    private String complaintHandleState;
+    @SerializedName("complaint_order_info")
+    private List<ComplaintOrderInfo> complaintOrderInfos;
+
 
     /**
-     * 动作类型
-     * action_type
-     * string[1, 64]
+     * 投诉单是否已全额退款
+     * complaint_full_refunded
+     * boolean
      * 是
      */
-    @SerializedName("action_type")
-    private String actionType;
+    @SerializedName("complaint_full_refunded")
+    private Boolean complaintFullRefunded;
+
+    /**
+     * 问题描述
+     * problem_description
+     * string[1, 256]
+     * 是
+     */
+    @SerializedName("problem_description")
+    private String problemDescription;
+
+    /**
+     * 是否有待回复的用户留言
+     * incoming_user_response
+     * boolean
+     * 是
+     */
+    @SerializedName("incoming_user_response")
+    private Boolean incomingUserResponse;
+
+    /**
+     * 用户投诉次数
+     * user_complaint_times
+     * int
+     * 是
+     */
+    @SerializedName("user_complaint_times")
+    private Integer userComplaintTimes;
+
+    /**
+     * 投诉资料
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class ComplaintMedia implements Serializable {
+        private static final long serialVersionUID = -7051137063680091638L;
+
+
+        /**
+         * 媒体文件业务类型
+         * media_type
+         * string[1, 32]
+         * 是
+         */
+        @SerializedName("media_type")
+        private String mediaType;
+
+
+        /**
+         * 媒体文件请求url
+         * media_url
+         * array
+         * 是
+         */
+        @SerializedName("media_url")
+        private List<String> mediaUrls;
+    }
+
+    /**
+     * 投诉单关联订单信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class ComplaintOrderInfo implements Serializable {
+        private static final long serialVersionUID = -8924114983961003057L;
+
+        /**
+         * 微信订单号
+         * transaction_id
+         * string[1,64]
+         * 是
+         */
+        @SerializedName("transaction_id")
+        private String transactionId;
+
+        /**
+         * 商户订单号
+         * out_trade_no
+         * string[1,64]
+         * 是
+         */
+        @SerializedName("out_trade_no")
+        private String outTradeNo;
+
+        /**
+         * 投诉金额
+         * amount
+         * uint64
+         * 是
+         */
+        @SerializedName("amount")
+        private Integer amount;
+
+    }
 
 
 }
