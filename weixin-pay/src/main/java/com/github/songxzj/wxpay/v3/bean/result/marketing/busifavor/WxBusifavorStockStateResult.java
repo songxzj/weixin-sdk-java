@@ -3,8 +3,6 @@ package com.github.songxzj.wxpay.v3.bean.result.marketing.busifavor;
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -165,8 +163,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 核销规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class CouponUseRule implements Serializable {
         private static final long serialVersionUID = -5992688266397520649L;
@@ -234,8 +232,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 发放规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class StockSendRule implements Serializable {
         private static final long serialVersionUID = 6664101378052693568L;
@@ -326,8 +324,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 自定义入口
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class CustomEntrance implements Serializable {
         private static final long serialVersionUID = -2957164289067742972L;
@@ -383,8 +381,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 小程序入口
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class MiniProgramsInfo implements Serializable {
         private static final long serialVersionUID = -752656549690287070L;
@@ -430,8 +428,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 样式信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class DisplayPatternInfo implements Serializable {
         private static final long serialVersionUID = 6158467083350103768L;
@@ -480,14 +478,60 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
          */
         @SerializedName("coupon_image_url")
         private String couponImageUrl;
+
+        /**
+         * 视频号相关信息
+         * finder_info
+         * object
+         * 否
+         */
+        @SerializedName("finder_info")
+        private FinderInfo finderInfo;
+    }
+
+
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class FinderInfo implements Serializable {
+        private static final long serialVersionUID = 3894252605037840276L;
+
+        /**
+         * 视频号ID
+         * finder_id
+         * string[1,32]
+         * 是
+         */
+        @SerializedName("finder_id")
+        private String finderId;
+
+        /**
+         * 视频号视频ID
+         * finder_video_id
+         * string[1,256]
+         * 是
+         */
+        @SerializedName("finder_video_id")
+        private String finderVideoId;
+
+
+        /**
+         * 视频号封面图
+         * finder_video_cover_image_url
+         * string[1,256]
+         * 是
+         */
+        @SerializedName("finder_video_cover_image_url")
+        private String finderVideoCoverImageUrl;
     }
 
     /**
      * 事件通知配置
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class NotifyConfig implements Serializable {
         private static final long serialVersionUID = 6849940616106039894L;
@@ -507,8 +551,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 固定面额满减券使用规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class FixedNormalCoupon implements Serializable {
         private static final long serialVersionUID = 5375911683425520684L;
@@ -536,8 +580,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 折扣券使用规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class DiscountCoupon implements Serializable {
         private static final long serialVersionUID = 1668630146358304366L;
@@ -566,8 +610,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 换购券使用规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class ExchangeCoupon implements Serializable {
         private static final long serialVersionUID = 7386191655130420058L;
@@ -597,8 +641,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 券可核销时间
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class CouponAvailableTime implements Serializable {
         private static final long serialVersionUID = -7404578889768333011L;
@@ -663,8 +707,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 固定周期有效时间段
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class AvailableWeek implements Serializable {
         private static final long serialVersionUID = 4952566292484289656L;
@@ -693,8 +737,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 当天可用时间段
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class AvailableDayTime implements Serializable {
         private static final long serialVersionUID = 6631933174237814296L;
@@ -723,8 +767,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 无规律的有效时间段
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class IrregularyAvaliableTime implements Serializable {
         private static final long serialVersionUID = -8541033274744163936L;
@@ -751,8 +795,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 券code数量
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class CouponCodeCount implements Serializable {
         private static final long serialVersionUID = -5945154093575459284L;
@@ -780,8 +824,8 @@ public class WxBusifavorStockStateResult extends BaseWxPayV3Result {
      * 批次发放情况
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class SendCountInformation implements Serializable {
         private static final long serialVersionUID = 5521688771331122313L;

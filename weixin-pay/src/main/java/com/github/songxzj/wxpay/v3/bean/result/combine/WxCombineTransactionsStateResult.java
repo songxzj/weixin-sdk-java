@@ -3,8 +3,6 @@ package com.github.songxzj.wxpay.v3.bean.result.combine;
 import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
@@ -80,8 +78,8 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
      * 场景信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class SceneInfo implements Serializable {
         private static final long serialVersionUID = 7573674519776180059L;
@@ -100,8 +98,8 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
      * 子单信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class SubOrder implements Serializable {
         private static final long serialVersionUID = 9213074386247061216L;
@@ -180,13 +178,13 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
         private String outTradeNo;
 
         /**
-         * 二级商户号
-         * sub_mchid
-         * string[1,32]
-         * 是
+         * 优惠功能
+         * promotion_detail
+         * array
+         * 否
          */
-        @SerializedName("sub_mchid")
-        private String subMchid;
+        @SerializedName("promotion_detail")
+        private List<PromotionDetail> promotionDetails;
 
         /**
          * 订单金额
@@ -198,12 +196,174 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
         private Amount amount;
     }
 
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class PromotionDetail implements Serializable {
+        private static final long serialVersionUID = 4013913476398824714L;
+
+        /**
+         * 券ID
+         * coupon_id
+         * string[1,32]
+         * 是
+         */
+        @SerializedName("coupon_id")
+        private String couponId;
+
+        /**
+         * 优惠名称
+         * name
+         * string[1,64]
+         * 否
+         */
+        @SerializedName("name")
+        private String name;
+        /**
+         * 优惠范围
+         * scope
+         * string[1,32]
+         * 否
+         */
+        @SerializedName("scope")
+        private String scope;
+
+        /**
+         * 优惠类型
+         * type
+         * string[1,32]
+         * 否
+         */
+        @SerializedName("type")
+        private String type;
+
+        /**
+         * 优惠券面额
+         * amount
+         * int
+         * 是
+         */
+        @SerializedName("amount")
+        private Integer amount;
+
+        /**
+         * 活动ID
+         * stock_id
+         * string[1,32]
+         * 否
+         */
+        @SerializedName("stock_id")
+        private String stockId;
+
+        /**
+         * 微信出资
+         * wechatpay_contribute
+         * int
+         * 否
+         */
+        @SerializedName("wechatpay_contribute")
+        private Integer wechatpayContribute;
+
+        /**
+         * 商户出资
+         * merchant_contribute
+         * int
+         * 否
+         */
+        @SerializedName("merchant_contribute")
+        private Integer merchantContribute;
+
+        /**
+         * 其他出资
+         * other_contribute
+         * int
+         * 否
+         */
+        @SerializedName("other_contribute")
+        private Integer otherContribute;
+
+        /**
+         * 优惠币种
+         * currency
+         * string[1,16]
+         * 否
+         */
+        @SerializedName("currency")
+        private String currency;
+
+        /**
+         * 单品列表
+         * goods_detail
+         * array
+         * 否
+         */
+        @SerializedName("goods_detail")
+        private List<GoodsDetail> goodsDetails;
+    }
+
+    /**
+     * 单品列表
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class GoodsDetail implements Serializable {
+        private static final long serialVersionUID = 5710961998130352574L;
+
+        /**
+         * 商品编码
+         * goods_id
+         * string[1,32]
+         * 是
+         */
+        @SerializedName("goods_id")
+        private String goodsId;
+
+        /**
+         * 商品数量
+         * quantity
+         * int
+         * 是
+         */
+        @SerializedName("quantity")
+        private Integer quantity;
+
+        /**
+         * 商品单价
+         * unit_price
+         * int
+         * 是
+         */
+        @SerializedName("unit_price")
+        private Integer unitPrice;
+
+        /**
+         * 商品优惠金额
+         * discount_amount
+         * int
+         * 是
+         */
+        @SerializedName("discount_amount")
+        private Integer discountAmount;
+
+        /**
+         * 商品备注
+         * goods_remark
+         * string[1,128]
+         * 否
+         */
+        @SerializedName("goods_remark")
+        private String goodsRemark;
+    }
+
     /**
      * 订单金额
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class Amount implements Serializable {
         private static final long serialVersionUID = 6412751184390720459L;
@@ -248,8 +408,8 @@ public class WxCombineTransactionsStateResult extends BaseWxPayV3Result {
      * 支付者
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class CombinePayerInfo implements Serializable {
         private static final long serialVersionUID = -1514375948726783878L;

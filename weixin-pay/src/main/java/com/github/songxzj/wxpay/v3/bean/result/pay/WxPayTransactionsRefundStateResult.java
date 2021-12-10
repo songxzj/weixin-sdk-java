@@ -155,8 +155,8 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
      * 金额信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class Amount implements Serializable {
         private static final long serialVersionUID = -4142251093840360550L;
@@ -178,6 +178,15 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
          */
         @SerializedName("refund")
         private Integer refund;
+
+        /**
+         * 退款出资账户及金额
+         * from
+         * array
+         * 否
+         */
+        @SerializedName("from")
+        private List<From> froms;
 
         /**
          * 用户支付金额
@@ -234,12 +243,37 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
         private String currency;
     }
 
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class From implements Serializable {
+        private static final long serialVersionUID = -2581669691364316840L;
+        /**
+         * 出资账户类型
+         * account
+         * string[1, 32]
+         * 是
+         */
+        @SerializedName("account")
+        private String account;
+
+        /**
+         * 出资金额
+         * amount
+         * int
+         * 是
+         */
+        @SerializedName("amount")
+        private Integer amount;
+    }
+
     /**
      * 优惠退款信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class PromotionDetail implements Serializable {
         private static final long serialVersionUID = 5146362153277536357L;
@@ -303,8 +337,8 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
      * 商品列表
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @NoArgsConstructor
     public static class GoodsDetail implements Serializable {
         private static final long serialVersionUID = -6312153501203854971L;

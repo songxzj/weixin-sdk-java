@@ -14,9 +14,9 @@ import org.springframework.http.HttpMethod;
 import java.util.List;
 
 /**
- * version:2020.11.12
+ * version:2021.12.09
  * 创建商家券API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_1.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_1.shtml">
  */
 @Setter
 @Getter
@@ -548,6 +548,67 @@ public class WxBusifavorStockRequest extends BaseWxPayV3Request<WxBusifavorStock
          */
         @SerializedName("coupon_image_url")
         private String couponImageUrl;
+
+        /**
+         * 视频号相关信息
+         * finder_info
+         * object
+         * 否
+         */
+        @SerializedName("finder_info")
+        private FinderInfo finderInfo;
+
+
+        @Override
+        public void checkConstraints() throws WxErrorException {
+
+        }
+    }
+
+    /**
+     * 视频号相关信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @EqualsAndHashCode(callSuper = true)
+    @Builder(builderMethodName = "newBuilder")
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class FinderInfo extends BaseV3Inner {
+        private static final long serialVersionUID = 6824164997182074098L;
+
+
+        /**
+         * 视频号ID
+         * finder_id
+         * string[1,32]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_id")
+        private String finderId;
+
+        /**
+         * 视频号视频ID
+         * finder_video_id
+         * string[1,256]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_video_id")
+        private String finderVideoId;
+
+
+        /**
+         * 视频号封面图
+         * finder_video_cover_image_url
+         * string[1,256]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_video_cover_image_url")
+        private String finderVideoCoverImageUrl;
 
 
         @Override

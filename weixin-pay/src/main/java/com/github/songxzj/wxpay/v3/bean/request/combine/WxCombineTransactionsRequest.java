@@ -233,14 +233,13 @@ public class WxCombineTransactionsRequest extends BaseWxPayV3Request<WxCombineTr
         private String outTradeNo;
 
         /**
-         * 二级商户号
-         * sub_mchid
+         * 订单优惠标记
+         * goods_tag
          * string[1,32]
-         * 是
+         * 否
          */
-        @Required
-        @SerializedName("sub_mchid")
-        private String subMchid;
+        @SerializedName("goods_tag")
+        private String goodsTag;
 
         /**
          * 商品描述

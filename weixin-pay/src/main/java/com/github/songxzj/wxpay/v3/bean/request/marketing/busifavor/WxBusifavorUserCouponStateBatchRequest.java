@@ -11,9 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2020.07.24
+ * version:2021.10.27
  * 根据过滤条件查询用户券API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_4.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_4.shtml">
  */
 @Setter
 @Getter

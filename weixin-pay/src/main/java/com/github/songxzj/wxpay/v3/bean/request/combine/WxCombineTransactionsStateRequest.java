@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2020.03.27
+ * version:2021.04.21
  * 合单支付
  * 合单查询订单API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter5_1_11.shtml">

@@ -12,9 +12,9 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2020.11.04
+ * version:2021.12.09
  * 修改商家券基本信息API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_12.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_12.shtml">
  */
 @Setter
 @Getter
@@ -48,14 +48,6 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
     @SerializedName("custom_entrance")
     private CustomEntrance customEntrance;
 
-    /**
-     * 商家券批次名称
-     * stock_name
-     * string[1,21]
-     * 否
-     */
-    @SerializedName("stock_name")
-    private String stockName;
 
     /**
      * 批次备注
@@ -161,8 +153,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 自定义入口
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -219,8 +211,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 小程序入口
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -278,8 +270,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 样式信息
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -295,24 +287,6 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
          */
         @SerializedName("description")
         private String description;
-
-        /**
-         * 商户logo
-         * merchant_logo_url
-         * string[1,128]
-         * 否
-         */
-        @SerializedName("merchant_logo_url")
-        private String merchantLogoUrl;
-
-        /**
-         * 商户名称
-         * merchant_name
-         * string[1,16]
-         * 否
-         */
-        @SerializedName("merchant_name")
-        private String merchantName;
 
         /**
          * 背景颜色
@@ -332,6 +306,66 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
         @SerializedName("coupon_image_url")
         private String couponImageUrl;
 
+        /**
+         * 视频号相关信息
+         * finder_info
+         * object
+         * 否
+         */
+        @SerializedName("finder_info")
+        private FinderInfo finderInfo;
+
+
+        @Override
+        public void checkConstraints() throws WxErrorException {
+
+        }
+    }
+
+    /**
+     * 视频号相关信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @EqualsAndHashCode(callSuper = true)
+    @Builder(builderMethodName = "newBuilder")
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class FinderInfo extends BaseV3Inner {
+        private static final long serialVersionUID = 5156079602675535053L;
+
+        /**
+         * 视频号ID
+         * finder_id
+         * string[1,32]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_id")
+        private String finderId;
+
+        /**
+         * 视频号视频ID
+         * finder_video_id
+         * string[1,256]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_video_id")
+        private String finderVideoId;
+
+
+        /**
+         * 视频号封面图
+         * finder_video_cover_image_url
+         * string[1,256]
+         * 是
+         */
+        @Required
+        @SerializedName("finder_video_cover_image_url")
+        private String finderVideoCoverImageUrl;
+
 
         @Override
         public void checkConstraints() throws WxErrorException {
@@ -343,8 +377,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 核销规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -389,8 +423,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 发放规则
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor
@@ -426,8 +460,8 @@ public class WxBusifavorStockModifyRequest extends BaseWxPayV3Request<WxBusifavo
      * 事件通知配置
      */
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     @EqualsAndHashCode(callSuper = true)
     @Builder(builderMethodName = "newBuilder")
     @NoArgsConstructor

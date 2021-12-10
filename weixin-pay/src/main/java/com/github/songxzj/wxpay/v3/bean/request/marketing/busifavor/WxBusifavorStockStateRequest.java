@@ -10,9 +10,9 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2020.07.24
+ * version:2021.12.09
  * 查询商家券详情API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/marketing/busifavor/chapter3_2.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_2.shtml">
  */
 @Setter
 @Getter
