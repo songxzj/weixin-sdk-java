@@ -6,6 +6,11 @@ import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * version:2020.07.01
+ * 商圈支付结果
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_6_1.shtml">
+ */
 @Setter
 @Getter
 @ToString
