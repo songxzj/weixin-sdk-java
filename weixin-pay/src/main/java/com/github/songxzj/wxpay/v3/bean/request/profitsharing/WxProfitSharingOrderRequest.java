@@ -14,7 +14,7 @@ import org.springframework.http.HttpMethod;
 import java.util.List;
 
 /**
- * version:2021.11.30
+ * version:2022.06.14
  * 请求分账API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_1_1.shtml">
  */

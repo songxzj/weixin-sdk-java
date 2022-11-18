@@ -90,7 +90,6 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     @SerializedName("complaint_media_list")
     private List<ComplaintMedia> complaintMediaList;
 
-
     /**
      * 投诉单关联订单信息
      * complaint_order_info
@@ -100,6 +99,14 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     @SerializedName("complaint_order_info")
     private List<ComplaintOrderInfo> complaintOrderInfos;
 
+    /**
+     * 投诉单关联服务单信息
+     * service_order_info
+     * array
+     * 否
+     */
+    @SerializedName("service_order_info")
+    private List<ServiceOrderInfo> serviceOrderInfos;
 
     /**
      * 投诉单是否已全额退款
@@ -111,15 +118,6 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     private Boolean complaintFullRefunded;
 
     /**
-     * 问题描述
-     * problem_description
-     * string[1, 256]
-     * 是
-     */
-    @SerializedName("problem_description")
-    private String problemDescription;
-
-    /**
      * 是否有待回复的用户留言
      * incoming_user_response
      * boolean
@@ -129,6 +127,15 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     private Boolean incomingUserResponse;
 
     /**
+     * 问题描述
+     * problem_description
+     * string[1, 256]
+     * 是
+     */
+    @SerializedName("problem_description")
+    private String problemDescription;
+
+    /**
      * 用户投诉次数
      * user_complaint_times
      * int
@@ -136,6 +143,34 @@ public class WxComplaintResult extends BaseWxPayV3Result {
      */
     @SerializedName("user_complaint_times")
     private Integer userComplaintTimes;
+
+    /**
+     * 问题类型
+     * problem_type
+     * string
+     * 否
+     */
+    @SerializedName("problem_type")
+    private String problemType;
+
+    /**
+     * 申请退款金额
+     * apply_refund_amount
+     * int
+     * 否
+     */
+    @SerializedName("apply_refund_amount")
+    private Integer applyRefundAmount;
+
+    /**
+     * 用户标签列表
+     * user_tag_list
+     * array
+     * 否
+     */
+    @SerializedName("user_tag_list")
+    private List<String> userTagList;
+
 
     /**
      * 投诉资料
@@ -204,6 +239,45 @@ public class WxComplaintResult extends BaseWxPayV3Result {
          */
         @SerializedName("amount")
         private Integer amount;
+
+    }
+
+
+    /**
+     * 投诉单关联服务单信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class ServiceOrderInfo implements Serializable {
+        private static final long serialVersionUID = 5589227619199595743L;
+        /**
+         * 微信支付服务订单号
+         * order_id
+         * string[1, 128]
+         * 否
+         */
+        @SerializedName("order_id")
+        private String orderId;
+
+        /**
+         * 商户服务订单号
+         * out_order_no
+         * string[1, 128]
+         * 否
+         */
+        @SerializedName("out_order_no")
+        private String outOrderNo;
+
+        /**
+         * 支付分服务单状态
+         * state
+         * string
+         * 否
+         */
+        @SerializedName("state")
+        private String state;
 
     }
 

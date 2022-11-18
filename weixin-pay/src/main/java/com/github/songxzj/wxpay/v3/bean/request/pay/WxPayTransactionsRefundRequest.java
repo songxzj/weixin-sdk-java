@@ -15,7 +15,7 @@ import org.springframework.http.HttpMethod;
 import java.util.List;
 
 /**
- * version:2021.05.28
+ * version:2022.08.29
  * 基础支付（直连模式）
  * 申请退款API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_9.shtml">

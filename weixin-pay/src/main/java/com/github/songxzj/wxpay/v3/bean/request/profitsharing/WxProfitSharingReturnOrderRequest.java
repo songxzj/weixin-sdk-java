@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.05.11
+ * version:2022.04.15
  * 请求分账回退API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_1_3.shtml">
  */

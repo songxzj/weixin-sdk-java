@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
 /**
- * version:2021.04.01
+ * version:2022.06.09
  * 投诉通知回调API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter10_2_16.shtml">
  */

@@ -11,9 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.08.27
+ * version:2022.06.08
  * 查询投诉单列表API
- * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/tool/merchant-service/chapter3_1.shtml">
+ * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter10_2_11.shtml">
  */
 @Setter
 @Getter

@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.05.11
+ * version:2022.02.14
  * 解冻剩余资金API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_1_5.shtml">
  */

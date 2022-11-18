@@ -3,18 +3,21 @@ package com.github.songxzj.wxpay.v3.bean.request.complaint;
 import com.github.songxzj.common.annotation.GsonExclude;
 import com.github.songxzj.common.annotation.Required;
 import com.github.songxzj.common.exception.WxErrorException;
+import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.v3.bean.request.BaseWxPayV3Request;
+import com.github.songxzj.wxpay.v3.bean.request.applyment.enums.AuthorizeSubjectTypeEnum;
 import com.github.songxzj.wxpay.v3.bean.result.complaint.WxComplaintResponseResult;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 import java.util.List;
 
 /**
- * version:2021.12.01
- * 提交回复API
+ * version:2022.5.20
+ * 回复用户API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter10_2_14.shtml">
  */
 @Setter
@@ -105,6 +108,9 @@ public class WxComplaintResponseRequest extends BaseWxPayV3Request<WxComplaintRe
 
     @Override
     protected void checkConstraints() throws WxErrorException {
+        if (StringUtils.isNotBlank(this.jumpUrl) && StringUtils.isBlank(this.jumpUrlText)) {
+            throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "若传入跳转链接，则跳转链接文案为必传项");
+        }
 
     }
 }

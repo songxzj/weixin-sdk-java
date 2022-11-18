@@ -241,6 +241,15 @@ public class WxPayTransactionsRefundStateResult extends BaseWxPayV3Result {
          */
         @SerializedName("currency")
         private String currency;
+
+        /**
+         * 手续费退款金额
+         * refund_fee
+         * string[1, 16]
+         * 是
+         */
+        @SerializedName("refund_fee")
+        private Integer refundFee;
     }
 
     @Setter

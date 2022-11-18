@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.05.11
+ * version:2022.07.19
  * 查询分账回退结果API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_1_4.shtml">
  */

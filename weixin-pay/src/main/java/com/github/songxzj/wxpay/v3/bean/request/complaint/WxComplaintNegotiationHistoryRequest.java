@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 import org.springframework.http.HttpMethod;
 
 /**
- * version:2021.08.27
+ * version:2022.08.05
  * 查询投诉协商历史API
  * <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter10_2_12.shtml">
  */
