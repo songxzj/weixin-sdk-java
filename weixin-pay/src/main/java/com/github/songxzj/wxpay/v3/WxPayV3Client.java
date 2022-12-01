@@ -438,7 +438,7 @@ public class WxPayV3Client {
                 .append(header.getNonce()).append("\n")
                 .append(responseContent).append("\n");
 
-        if (!SignUtils.checkSHA256withRSASign(getWxCertificate(header.getSerialNo()), toSign.toString(), header.getSignature())) {
+        if (!this.wxPayConfig.getVerifier().verify(getWxCertificate(header.getSerialNo()), toSign.toString(), header.getSignature())) {
             return false;
         }
         return true;

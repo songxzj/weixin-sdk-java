@@ -5,6 +5,7 @@ import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
 import com.github.songxzj.wxpay.v3.core.authcipher.AesAuthCipher;
 import com.github.songxzj.wxpay.v3.core.signer.RSASigner;
+import com.github.songxzj.wxpay.v3.core.verifier.RSAVerifier;
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.PrivateKey;
@@ -19,6 +20,7 @@ public class WxPayRSAConfig extends WxPayAbstractConfig {
         this.privateKey = privateKey;
         this.apiv3Key = apiv3Key;
         this.signer = new RSASigner(privateKey);
+        this.verifier = new RSAVerifier();
         this.authCipher = new AesAuthCipher(apiv3Key);
     }
 

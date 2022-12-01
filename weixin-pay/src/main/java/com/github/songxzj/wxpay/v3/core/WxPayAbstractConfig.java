@@ -2,6 +2,7 @@ package com.github.songxzj.wxpay.v3.core;
 
 import com.github.songxzj.wxpay.v3.core.authcipher.AuthCipher;
 import com.github.songxzj.wxpay.v3.core.signer.Signer;
+import com.github.songxzj.wxpay.v3.core.verifier.Verifier;
 
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
@@ -34,6 +35,8 @@ public abstract class WxPayAbstractConfig implements WxPayConfig {
 
     protected Signer signer;
 
+    protected Verifier verifier;
+
     protected AuthCipher authCipher;
 
     @Override
@@ -53,6 +56,10 @@ public abstract class WxPayAbstractConfig implements WxPayConfig {
         return signer;
     }
 
+    @Override
+    public Verifier getVerifier() {
+        return verifier;
+    }
 
     @Override
     public AuthCipher getAuthCipher() {

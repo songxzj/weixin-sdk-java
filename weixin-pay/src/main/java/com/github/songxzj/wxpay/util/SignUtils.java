@@ -201,25 +201,4 @@ public class SignUtils {
     }
 
 
-    /**
-     * SHA256withRSA 签名验证
-     *
-     * @param certificate
-     * @param message
-     * @param signature
-     * @return
-     * @throws WxErrorException
-     */
-    public static boolean checkSHA256withRSASign(X509Certificate certificate, String message, String signature) throws WxErrorException {
-        try {
-            Signature sign = Signature.getInstance("SHA256withRSA");
-            sign.initVerify(certificate);
-
-            sign.update(message.getBytes(StandardCharsets.UTF_8));
-            return sign.verify(Base64Utils.decodeFromString(signature));
-        } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
-            log.error(e.getMessage(), e);
-            throw new WxErrorException(WxErrorExceptionFactor.SIGN_ERROR_ERROR);
-        }
-    }
 }

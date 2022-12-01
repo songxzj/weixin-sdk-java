@@ -50,9 +50,9 @@ public class WxErrorExceptionFactor implements Serializable {
     public static final WxErrorExceptionFactor IMAGE_ERROR =
             new WxErrorExceptionFactor(IMAGE_ERROR_CODE, "所需图片处理错误");
 
-    public static final String DECRYPT_CERTIFICATE_ERROR_CODE = "80010";
-    public static final WxErrorExceptionFactor DECRYPT_CERTIFICATE_ERROR =
-            new WxErrorExceptionFactor(DECRYPT_CERTIFICATE_ERROR_CODE, "证书解密错误");
+    public static final String DECRYPT_ERROR_CODE = "80010";
+    public static final WxErrorExceptionFactor DECRYPT_ERROR =
+            new WxErrorExceptionFactor(DECRYPT_ERROR_CODE, "解密错误");
 
     public static final String SENSITIVE_ENCRYPT_ERROR_CODE = "80011";
     public static final WxErrorExceptionFactor SENSITIVE_ENCRYPT_ERROR =
@@ -81,6 +81,11 @@ public class WxErrorExceptionFactor implements Serializable {
     public static final String CREATE_STREAM_INSTANCE_ERROR_CODE = "80017";
     public static final WxErrorExceptionFactor CREATE_STREAM_INSTANCE_ERROR =
             new WxErrorExceptionFactor(CREATE_STREAM_INSTANCE_ERROR_CODE, "创建对象错误");
+
+
+    public static final String ENCRYPT_ERROR_CODE = "80018";
+    public static final WxErrorExceptionFactor ENCRYPT_ERROR =
+            new WxErrorExceptionFactor(ENCRYPT_ERROR_CODE, "加密错误");
 
 
 }
