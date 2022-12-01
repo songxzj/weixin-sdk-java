@@ -10,8 +10,8 @@ import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.common.util.WxIOUtils;
 import com.github.songxzj.wxpay.constant.WxPayConstants;
+import com.github.songxzj.wxpay.core.WxPayV3AlgorithmConfig;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
-import com.github.songxzj.wxpay.util.DecryptUtils;
 import com.github.songxzj.wxpay.util.SensitiveUtils;
 import com.github.songxzj.wxpay.util.SignUtils;
 import com.github.songxzj.wxpay.v3.bean.cert.WxPayV3Certificate;
@@ -35,7 +35,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -84,29 +83,10 @@ public class WxPayV3Client {
     }
 
     private String getSchema() {
-        return "WECHATPAY2-SHA256-RSA2048";
+        return "WECHATPAY2-" + algorithmConfig.getSigner().getAlgorithm();
     }
 
-    /**
-     * 商户号.
-     */
-    private final String mchId;
-
-    /**
-     * 商户API证书序列号
-     */
-    private final String serialNo;
-
-    /**
-     * 商户API证书
-     */
-    private final X509Certificate certificate;
-
-
-    /**
-     * 商户私钥.
-     */
-    private final PrivateKey privateKey;
+    private final WxPayV3AlgorithmConfig algorithmConfig;
 
     /**
      * 微信支付平台证书序列号
@@ -118,33 +98,12 @@ public class WxPayV3Client {
      */
     private X509Certificate wxCertificate;
 
-    /**
-     * apiv3 密钥
-     */
-    private final String apiv3Key;
-
-    public String getMchId() {
-        return mchId;
-    }
-
-    public String getSerialNo() {
-        return serialNo;
-    }
-
-    public X509Certificate getCertificate() {
-        return certificate;
-    }
-
-    public PrivateKey getPrivateKey() {
-        return privateKey;
-    }
-
-    public String getApiv3Key() {
-        return apiv3Key;
+    public WxPayV3AlgorithmConfig getAlgorithmConfig() {
+        return algorithmConfig;
     }
 
     private X509Certificate getWxCertificate(String responseWxSerialNo) throws WxErrorException {
-        if (!StringUtils.isBlank(responseWxSerialNo) && responseWxSerialNo.equals(this.wxSerialNo)) {
+        if (!StringUtils.isAllBlank(responseWxSerialNo, this.wxSerialNo) && responseWxSerialNo.equals(this.wxSerialNo)) {
             return this.wxCertificate;
         }
         LocalDateTime nowDateTime = LocalDateTimeUtil.now();
@@ -158,13 +117,35 @@ public class WxPayV3Client {
         return this.wxCertificate;
     }
 
-    private WxPayV3Client(String mchId, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
-        this.mchId = mchId;
-        this.serialNo = certificate.getSerialNumber().toString(16).toUpperCase();
-        this.certificate = certificate;
-        this.privateKey = privateKey;
-        this.apiv3Key = apiv3Key;
-        getWxCertificate(null);
+    /**
+     * 根据返回的平台序列号去查询平台证书
+     *
+     * @param responseWxSerialNo
+     * @return
+     * @throws WxErrorException
+     */
+    private void getWxV3Certificate(String responseWxSerialNo) throws WxErrorException {
+        WxCertificatesV3Request request = WxCertificatesV3Request.newBuilder().build();
+        WxCertificatesV3Result result = execute(request);
+        List<WxPayV3Certificate> wxPayV3CertificateList = result.getWxPayV3CertificateList();
+        WxPayV3Certificate wxPayV3Certificate = wxPayV3CertificateList.get(0);
+        if (!StringUtils.isBlank(responseWxSerialNo)) {
+            for (WxPayV3Certificate temp : wxPayV3CertificateList) {
+                if (wxPayV3Certificate.getSerialNo().equals(responseWxSerialNo)) {
+                    wxPayV3Certificate = temp;
+                    break;
+                }
+            }
+        }
+        WxPayV3Certificate.EncryptV3Certificate encryptV3Certificate = wxPayV3Certificate.getEncryptV3Certificate();
+
+        this.wxSerialNo = wxPayV3Certificate.getSerialNo();
+        this.wxCertificate = CertKeyUtils.loadCertificate(this.algorithmConfig.getAuthCipher().decrypt(encryptV3Certificate.getNonce(), encryptV3Certificate.getAssociatedData(), encryptV3Certificate.getCipherText()));
+    }
+
+    private WxPayV3Client(WxPayV3AlgorithmConfig algorithmConfig) {
+        this.algorithmConfig = algorithmConfig;
+        //getWxCertificate(null);
     }
 
     public static WxPayV3ClientBuilder newBuilder() {
@@ -173,79 +154,22 @@ public class WxPayV3Client {
 
     public static class WxPayV3ClientBuilder {
 
-        private String mchId;
-
-        private String privateCertStr;
-
-        private String privateCertPath;
-
-        private String privateKeyStr;
-
-        private String privateKeyPath;
-
-        private String apiv3Key;
+        private WxPayV3AlgorithmConfig algorithmConfig;
 
         private WxPayV3ClientBuilder() {
         }
 
-        public WxPayV3ClientBuilder mchId(String mchId) {
-            this.mchId = mchId;
-            return this;
-        }
-
-        public WxPayV3ClientBuilder privateCertStr(String privateCertStr) {
-            this.privateCertStr = privateCertStr;
-            return this;
-        }
-
-        public WxPayV3ClientBuilder privateCertPath(String privateCertPath) {
-            this.privateCertPath = privateCertPath;
-            return this;
-        }
-
-        public WxPayV3ClientBuilder privateKeyStr(String privateKeyStr) {
-            this.privateKeyStr = privateKeyStr;
-            return this;
-        }
-
-        public WxPayV3ClientBuilder privateKeyPath(String privateKeyPath) {
-            this.privateKeyPath = privateKeyPath;
-            return this;
-        }
-
-        public WxPayV3ClientBuilder apiv3Key(String apiv3Key) {
-            this.apiv3Key = apiv3Key;
+        public WxPayV3ClientBuilder algorithmConfig(WxPayV3AlgorithmConfig algorithmConfig) {
+            this.algorithmConfig = algorithmConfig;
             return this;
         }
 
         public WxPayV3Client build() throws WxErrorException {
-            if (StringUtils.isBlank(this.mchId)) {
-                throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "mchId 必须提供值");
-            }
-            if (StringUtils.isAllBlank(this.privateCertPath, this.privateCertStr)) {
-                throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "商户证书信息必须提供值");
-            }
-            if (StringUtils.isAllBlank(this.privateKeyPath, this.privateKeyStr)) {
-                throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "商户密钥信息必须提供值");
-            }
-            if (StringUtils.isBlank(this.apiv3Key)) {
-                throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "apiv3Key 必须提供值");
+            if (this.algorithmConfig == null) {
+                throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "算法密钥必须提供值");
             }
 
-            X509Certificate certificate;
-            if (!StringUtils.isBlank(this.privateCertPath)) {
-                certificate = CertKeyUtils.loadCertificate(CertKeyUtils.loadInputStream(this.privateCertPath));
-            } else {
-                certificate = CertKeyUtils.loadCertificate(this.privateCertStr);
-            }
-            PrivateKey privateKey;
-            if (!StringUtils.isBlank(this.privateKeyPath)) {
-                privateKey = CertKeyUtils.loadPrivateKey(CertKeyUtils.loadInputStream(this.privateKeyPath));
-            } else {
-                privateKey = CertKeyUtils.loadPrivateKey(this.privateKeyStr);
-            }
-
-            return new WxPayV3Client(this.mchId, certificate, privateKey, this.apiv3Key);
+            return new WxPayV3Client(this.algorithmConfig);
         }
     }
 
@@ -269,7 +193,7 @@ public class WxPayV3Client {
 
         T result = BaseWxPayV3Result.fromJson(responseContent, clz);
         if (result.isSensitiveEncrypt()) {
-            SensitiveUtils.decryptFieldsV3(result, this.privateKey);
+            SensitiveUtils.decryptFieldsV3(result, this.algorithmConfig.getPrivateKey());
         }
         return result;
     }
@@ -301,11 +225,11 @@ public class WxPayV3Client {
                 .append(request.toSignString()).append("\n");
 
 
-        String signature = SignUtils.createSHA256withRSASign(toSign.toString(), this.privateKey);
+        String signature = this.algorithmConfig.getSigner().sign(toSign.toString());
 
         StringBuilder token = new StringBuilder();
-        token.append("mchid=\"").append(this.mchId).append("\",")
-                .append("serial_no=\"").append(this.serialNo).append("\",")
+        token.append("mchid=\"").append(this.algorithmConfig.getMchId()).append("\",")
+                .append("serial_no=\"").append(this.algorithmConfig.getSerialNo()).append("\",")
                 .append("nonce_str=\"").append(nonceStr).append("\",")
                 .append("timestamp=\"").append(timestamp).append("\",")
                 .append("signature=\"").append(signature).append("\"");
@@ -540,36 +464,9 @@ public class WxPayV3Client {
         }
 
         WxNotifyResult.Resource resource = wxNotifyResult.getResource();
-        wxNotifyResult.setWxPayResult(BaseWxPayV3Result.fromJson(DecryptUtils.decryptV3(this.apiv3Key, resource.getNonce(), resource.getAssociatedData(), resource.getCipherText()), clz));
+        wxNotifyResult.setWxPayResult(BaseWxPayV3Result.fromJson(this.algorithmConfig.getAuthCipher().decrypt(resource.getNonce(), resource.getAssociatedData(), resource.getCipherText()), clz));
 
         return wxNotifyResult;
-    }
-
-    /**
-     * 根据返回的平台序列号去查询平台证书
-     *
-     * @param responseWxSerialNo
-     * @return
-     * @throws WxErrorException
-     */
-    private void getWxV3Certificate(String responseWxSerialNo) throws WxErrorException {
-
-        WxCertificatesV3Request request = WxCertificatesV3Request.newBuilder().build();
-        WxCertificatesV3Result result = execute(request);
-        List<WxPayV3Certificate> wxPayV3CertificateList = result.getWxPayV3CertificateList();
-        WxPayV3Certificate wxPayV3Certificate = wxPayV3CertificateList.get(0);
-        if (!StringUtils.isBlank(responseWxSerialNo)) {
-            for (WxPayV3Certificate temp : wxPayV3CertificateList) {
-                if (wxPayV3Certificate.getSerialNo().equals(responseWxSerialNo)) {
-                    wxPayV3Certificate = temp;
-                    break;
-                }
-            }
-        }
-        WxPayV3Certificate.EncryptV3Certificate encryptV3Certificate = wxPayV3Certificate.getEncryptV3Certificate();
-
-        this.wxSerialNo = wxPayV3Certificate.getSerialNo();
-        this.wxCertificate = CertKeyUtils.loadCertificate(DecryptUtils.decryptV3(this.apiv3Key, encryptV3Certificate.getNonce(), encryptV3Certificate.getAssociatedData(), encryptV3Certificate.getCipherText()));
     }
 
     /**

@@ -66,9 +66,28 @@ public class WxPayConstants {
          */
         public static final String MD5 = "MD5";
         /**
+         * The constant SHA256withRSA.
+         */
+        public static final String SHA256WithRSA = "SHA256withRSA";
+        /**
          * The constant ALL_SIGN_TYPES.
          */
         public static final List<String> ALL_SIGN_TYPES = Lists.newArrayList(HMAC_SHA256, MD5);
+    }
+
+    /**
+     * 算法类型
+     */
+    public static class AlgorithmType {
+        /**
+         * The constant SHA256_RSA2048.
+         */
+        public static final String SHA256_RSA2048 = "SHA256-RSA2048";
+        /**
+         * The constant SM2_WITH_SM3.
+         */
+        public static final String SM2_WITH_SM3 = "SM2-WITH-SM3";
+
     }
 
     /**
