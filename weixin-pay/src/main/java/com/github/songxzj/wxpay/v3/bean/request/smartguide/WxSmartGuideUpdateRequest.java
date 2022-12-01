@@ -113,4 +113,8 @@ public class WxSmartGuideUpdateRequest extends BaseWxPayV3Request<WxSmartGuideUp
     @Override
     protected void checkConstraints() throws WxErrorException {
     }
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
+    }
 }

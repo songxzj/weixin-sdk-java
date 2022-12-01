@@ -111,6 +111,10 @@ public class WxProfitSharingReceiverAddRequest extends BaseWxPayV3Request<WxProf
         if (ProfitSharingReceiverRelationTypeEnum.CUSTOM.name().equals(this.relationType) && StringUtils.isBlank(this.customRelation)) {
             throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "当字段relation_type的值为CUSTOM时，自定义的分账关系必填");
         }
+    }
 
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
     }
 }

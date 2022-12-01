@@ -1,18 +1,18 @@
-package com.github.songxzj.wxpay.core;
+package com.github.songxzj.wxpay.v3.core;
 
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
-import com.github.songxzj.wxpay.core.authcipher.AesAuthCipher;
-import com.github.songxzj.wxpay.core.signer.RSASigner;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
+import com.github.songxzj.wxpay.v3.core.authcipher.AesAuthCipher;
+import com.github.songxzj.wxpay.v3.core.signer.RSASigner;
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 
-public class WxPayV3RSAConfig extends WxPayV3AlgorithmConfig {
+public class WxPayRSAConfig extends WxPayAbstractConfig {
 
-    private WxPayV3RSAConfig(String mchId,String serialNo, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
+    private WxPayRSAConfig(String mchId, String serialNo, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
         this.mchId = mchId;
         this.serialNo = serialNo;
         this.certificate = certificate;
@@ -80,7 +80,7 @@ public class WxPayV3RSAConfig extends WxPayV3AlgorithmConfig {
             return this;
         }
 
-        public WxPayV3RSAConfig build() throws WxErrorException {
+        public WxPayRSAConfig build() throws WxErrorException {
             if (StringUtils.isBlank(this.mchId)) {
                 throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "mchId 必须提供值");
             }
@@ -109,9 +109,8 @@ public class WxPayV3RSAConfig extends WxPayV3AlgorithmConfig {
             } else {
                 privateKey = CertKeyUtils.loadPrivateKey(this.privateKeyStr);
             }
-            System.out.println(certificate.getSerialNumber().toString(16).toUpperCase());
 
-            return new WxPayV3RSAConfig(this.mchId, this.serialNo, certificate, privateKey, this.apiv3Key);
+            return new WxPayRSAConfig(this.mchId, this.serialNo, certificate, privateKey, this.apiv3Key);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.github.songxzj.wxpay.core.authcipher;
+package com.github.songxzj.wxpay.v3.core.authcipher;
 
 import com.github.songxzj.common.exception.WxErrorException;
 

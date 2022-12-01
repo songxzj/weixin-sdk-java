@@ -171,4 +171,9 @@ public class WxProfitSharingOrderRequest extends BaseWxPayV3Request<WxProfitShar
     protected void checkConstraints() throws WxErrorException {
 
     }
+
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
+    }
 }

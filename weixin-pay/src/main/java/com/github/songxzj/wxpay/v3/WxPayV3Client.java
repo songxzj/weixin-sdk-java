@@ -10,7 +10,6 @@ import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.common.util.WxIOUtils;
 import com.github.songxzj.wxpay.constant.WxPayConstants;
-import com.github.songxzj.wxpay.core.WxPayV3AlgorithmConfig;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
 import com.github.songxzj.wxpay.util.SensitiveUtils;
 import com.github.songxzj.wxpay.util.SignUtils;
@@ -22,6 +21,7 @@ import com.github.songxzj.wxpay.v3.bean.result.BaseWxPayV3Result;
 import com.github.songxzj.wxpay.v3.bean.result.WxCertificatesV3Result;
 import com.github.songxzj.wxpay.v3.bean.result.media.WxMediaUploadResult;
 import com.github.songxzj.wxpay.v3.bean.result.notify.WxNotifyResult;
+import com.github.songxzj.wxpay.v3.core.WxPayConfig;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import org.apache.commons.io.IOUtils;
@@ -83,10 +83,10 @@ public class WxPayV3Client {
     }
 
     private String getSchema() {
-        return "WECHATPAY2-" + algorithmConfig.getSigner().getAlgorithm();
+        return "WECHATPAY2-" + wxPayConfig.getSigner().getAlgorithm();
     }
 
-    private final WxPayV3AlgorithmConfig algorithmConfig;
+    private final WxPayConfig wxPayConfig;
 
     /**
      * 微信支付平台证书序列号
@@ -98,8 +98,8 @@ public class WxPayV3Client {
      */
     private X509Certificate wxCertificate;
 
-    public WxPayV3AlgorithmConfig getAlgorithmConfig() {
-        return algorithmConfig;
+    public WxPayConfig getWxPayConfig() {
+        return wxPayConfig;
     }
 
     private X509Certificate getWxCertificate(String responseWxSerialNo) throws WxErrorException {
@@ -140,11 +140,11 @@ public class WxPayV3Client {
         WxPayV3Certificate.EncryptV3Certificate encryptV3Certificate = wxPayV3Certificate.getEncryptV3Certificate();
 
         this.wxSerialNo = wxPayV3Certificate.getSerialNo();
-        this.wxCertificate = CertKeyUtils.loadCertificate(this.algorithmConfig.getAuthCipher().decrypt(encryptV3Certificate.getNonce(), encryptV3Certificate.getAssociatedData(), encryptV3Certificate.getCipherText()));
+        this.wxCertificate = CertKeyUtils.loadCertificate(this.wxPayConfig.getAuthCipher().decrypt(encryptV3Certificate.getNonce(), encryptV3Certificate.getAssociatedData(), encryptV3Certificate.getCipherText()));
     }
 
-    private WxPayV3Client(WxPayV3AlgorithmConfig algorithmConfig) {
-        this.algorithmConfig = algorithmConfig;
+    private WxPayV3Client(WxPayConfig wxPayConfig) {
+        this.wxPayConfig = wxPayConfig;
         //getWxCertificate(null);
     }
 
@@ -154,22 +154,22 @@ public class WxPayV3Client {
 
     public static class WxPayV3ClientBuilder {
 
-        private WxPayV3AlgorithmConfig algorithmConfig;
+        private WxPayConfig wxPayConfig;
 
         private WxPayV3ClientBuilder() {
         }
 
-        public WxPayV3ClientBuilder algorithmConfig(WxPayV3AlgorithmConfig algorithmConfig) {
-            this.algorithmConfig = algorithmConfig;
+        public WxPayV3ClientBuilder algorithmConfig(WxPayConfig wxPayConfig) {
+            this.wxPayConfig = wxPayConfig;
             return this;
         }
 
         public WxPayV3Client build() throws WxErrorException {
-            if (this.algorithmConfig == null) {
+            if (this.wxPayConfig == null) {
                 throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "算法密钥必须提供值");
             }
 
-            return new WxPayV3Client(this.algorithmConfig);
+            return new WxPayV3Client(this.wxPayConfig);
         }
     }
 
@@ -193,7 +193,7 @@ public class WxPayV3Client {
 
         T result = BaseWxPayV3Result.fromJson(responseContent, clz);
         if (result.isSensitiveEncrypt()) {
-            SensitiveUtils.decryptFieldsV3(result, this.algorithmConfig.getPrivateKey());
+            SensitiveUtils.decryptFieldsV3(result, this.wxPayConfig.getPrivateKey());
         }
         return result;
     }
@@ -225,11 +225,11 @@ public class WxPayV3Client {
                 .append(request.toSignString()).append("\n");
 
 
-        String signature = this.algorithmConfig.getSigner().sign(toSign.toString());
+        String signature = this.wxPayConfig.getSigner().sign(toSign.toString());
 
         StringBuilder token = new StringBuilder();
-        token.append("mchid=\"").append(this.algorithmConfig.getMchId()).append("\",")
-                .append("serial_no=\"").append(this.algorithmConfig.getSerialNo()).append("\",")
+        token.append("mchid=\"").append(this.wxPayConfig.getMchId()).append("\",")
+                .append("serial_no=\"").append(this.wxPayConfig.getSerialNo()).append("\",")
                 .append("nonce_str=\"").append(nonceStr).append("\",")
                 .append("timestamp=\"").append(timestamp).append("\",")
                 .append("signature=\"").append(signature).append("\"");
@@ -464,7 +464,7 @@ public class WxPayV3Client {
         }
 
         WxNotifyResult.Resource resource = wxNotifyResult.getResource();
-        wxNotifyResult.setWxPayResult(BaseWxPayV3Result.fromJson(this.algorithmConfig.getAuthCipher().decrypt(resource.getNonce(), resource.getAssociatedData(), resource.getCipherText()), clz));
+        wxNotifyResult.setWxPayResult(BaseWxPayV3Result.fromJson(this.wxPayConfig.getAuthCipher().decrypt(resource.getNonce(), resource.getAssociatedData(), resource.getCipherText()), clz));
 
         return wxNotifyResult;
     }

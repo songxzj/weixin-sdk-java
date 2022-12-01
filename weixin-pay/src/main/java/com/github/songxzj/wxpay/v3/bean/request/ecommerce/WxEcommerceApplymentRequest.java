@@ -712,6 +712,10 @@ public class WxEcommerceApplymentRequest extends BaseWxPayV3Request<WxEcommerceA
         }
     }
 
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
+    }
 
 }
 

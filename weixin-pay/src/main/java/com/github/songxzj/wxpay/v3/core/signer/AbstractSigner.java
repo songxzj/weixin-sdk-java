@@ -1,4 +1,4 @@
-package com.github.songxzj.wxpay.core.signer;
+package com.github.songxzj.wxpay.v3.core.signer;
 
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;

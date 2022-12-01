@@ -281,5 +281,10 @@ public class WxComplaintResult extends BaseWxPayV3Result {
 
     }
 
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
+    }
+
 
 }

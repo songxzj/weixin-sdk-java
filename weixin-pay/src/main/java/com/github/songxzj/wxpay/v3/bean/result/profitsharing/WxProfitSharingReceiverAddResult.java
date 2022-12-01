@@ -61,4 +61,10 @@ public class WxProfitSharingReceiverAddResult extends BaseWxPayV3Result {
     @SerializedName("custom_relation")
     private String customRelation;
 
+
+    @Override
+    public boolean isSensitiveEncrypt() {
+        return true;
+    }
+
 }
