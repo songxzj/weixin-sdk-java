@@ -22,4 +22,6 @@ public class SignatureHeader implements Serializable {
     private String signature;
 
     private String serialNo;
+
+    private String signatureType;
 }

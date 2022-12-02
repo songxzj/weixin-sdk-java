@@ -1,6 +1,8 @@
 package com.github.songxzj.wxpay.v3.core;
 
 import com.github.songxzj.wxpay.v3.core.authcipher.AuthCipher;
+import com.github.songxzj.wxpay.v3.core.privacydecryptor.PrivacyDecryptor;
+import com.github.songxzj.wxpay.v3.core.privacyencryptor.PrivacyEncryptor;
 import com.github.songxzj.wxpay.v3.core.signer.Signer;
 import com.github.songxzj.wxpay.v3.core.verifier.Verifier;
 
@@ -39,6 +41,10 @@ public abstract class WxPayAbstractConfig implements WxPayConfig {
 
     protected AuthCipher authCipher;
 
+    protected PrivacyEncryptor privacyEncryptor;
+
+    protected PrivacyDecryptor privacyDecryptor;
+
     @Override
     public String getMchId() {
         return mchId;
@@ -67,7 +73,12 @@ public abstract class WxPayAbstractConfig implements WxPayConfig {
     }
 
     @Override
-    public PrivateKey getPrivateKey() {
-        return privateKey;
+    public PrivacyEncryptor getPrivacyEncryptor() {
+        return privacyEncryptor;
+    }
+
+    @Override
+    public PrivacyDecryptor getPrivacyDecryptor() {
+        return privacyDecryptor;
     }
 }

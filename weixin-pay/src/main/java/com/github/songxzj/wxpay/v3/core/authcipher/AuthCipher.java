@@ -13,5 +13,5 @@ public interface AuthCipher {
     /**
      * 加密
      */
-    String encrypt(String nonce, String associatedData, String plainText) throws WxErrorException;
+    String encrypt(String nonce, String associatedData, String plaintext) throws WxErrorException;
 }

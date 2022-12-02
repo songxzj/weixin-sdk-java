@@ -102,7 +102,7 @@ public class WxPayV3Client {
     }
 
     private X509Certificate getWxCertificate(String responseWxSerialNo) throws WxErrorException {
-        if (!StringUtils.isAllBlank(responseWxSerialNo, this.wxSerialNo) && responseWxSerialNo.equals(this.wxSerialNo)) {
+        if (!StringUtils.isBlank(responseWxSerialNo) && responseWxSerialNo.equals(this.wxSerialNo)) {
             return this.wxCertificate;
         }
         LocalDateTime nowDateTime = LocalDateTimeUtil.now();
@@ -142,9 +142,9 @@ public class WxPayV3Client {
         this.wxCertificate = CertKeyUtils.loadCertificate(this.wxPayConfig.getAuthCipher().decrypt(encryptV3Certificate.getNonce(), encryptV3Certificate.getAssociatedData(), encryptV3Certificate.getCipherText()));
     }
 
-    private WxPayV3Client(WxPayConfig wxPayConfig) {
+    private WxPayV3Client(WxPayConfig wxPayConfig) throws WxErrorException {
         this.wxPayConfig = wxPayConfig;
-        //getWxCertificate(null);
+        getWxCertificate(null);
     }
 
     public static WxPayV3ClientBuilder newBuilder() {
@@ -192,7 +192,7 @@ public class WxPayV3Client {
 
         T result = BaseWxPayV3Result.fromJson(responseContent, clz);
         if (result.isSensitiveEncrypt()) {
-            SensitiveUtils.decryptFieldsV3(result, this.wxPayConfig.getPrivateKey());
+            result = (T) this.wxPayConfig.getPrivacyDecryptor().decrypt(result);
         }
         return result;
     }
@@ -210,7 +210,7 @@ public class WxPayV3Client {
     private <T extends BaseWxPayV3Result> String checkAndSignAndGetToken(BaseWxPayV3Request<T> request) throws WxErrorException {
         request.checkFields();
         if (request.isSensitiveEncrypt()) {
-            SensitiveUtils.encryptFieldsV3(request, getWxCertificate(null));
+            request = (BaseWxPayV3Request<T>) this.wxPayConfig.getPrivacyEncryptor().encrypt(request, getWxCertificate(null));
         }
 
         long timestamp = System.currentTimeMillis() / 1000;
@@ -409,6 +409,7 @@ public class WxPayV3Client {
                 .nonce(responseHeaders.getFirst("Wechatpay-Nonce"))
                 .signature(responseHeaders.getFirst("Wechatpay-Signature"))
                 .serialNo(responseHeaders.getFirst("Wechatpay-Serial"))
+                .signatureType(responseHeaders.getFirst("Wechatpay-Signature-Type"))
                 .build();
 
         if (!verifySignature(header, responseContent)) {

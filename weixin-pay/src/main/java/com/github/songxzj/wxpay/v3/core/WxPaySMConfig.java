@@ -3,36 +3,36 @@ package com.github.songxzj.wxpay.v3.core;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
-import com.github.songxzj.wxpay.v3.core.authcipher.AesAuthCipher;
-import com.github.songxzj.wxpay.v3.core.privacydecryptor.RSAPrivacyDecryptor;
-import com.github.songxzj.wxpay.v3.core.privacyencryptor.RSAPrivacyEncryptor;
-import com.github.songxzj.wxpay.v3.core.signer.RSASigner;
-import com.github.songxzj.wxpay.v3.core.verifier.RSAVerifier;
+import com.github.songxzj.wxpay.v3.core.authcipher.SM4AuthCipher;
+import com.github.songxzj.wxpay.v3.core.privacydecryptor.SM2PrivacyDecryptor;
+import com.github.songxzj.wxpay.v3.core.privacyencryptor.SM2PrivacyEncryptor;
+import com.github.songxzj.wxpay.v3.core.signer.SM2Signer;
+import com.github.songxzj.wxpay.v3.core.verifier.SM2Verifier;
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 
-public class WxPayRSAConfig extends WxPayAbstractConfig {
+public class WxPaySMConfig extends WxPayAbstractConfig {
 
-    private WxPayRSAConfig(String mchId, String serialNo, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
+    private WxPaySMConfig(String mchId, String serialNo, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
         this.mchId = mchId;
         this.serialNo = serialNo;
         this.certificate = certificate;
         this.privateKey = privateKey;
         this.apiv3Key = apiv3Key;
-        this.signer = new RSASigner(privateKey);
-        this.verifier = new RSAVerifier();
-        this.authCipher = new AesAuthCipher(apiv3Key);
-        this.privacyEncryptor = new RSAPrivacyEncryptor();
-        this.privacyDecryptor = new RSAPrivacyDecryptor(privateKey);
+        this.signer = new SM2Signer(privateKey);
+        this.verifier = new SM2Verifier();
+        this.authCipher = new SM4AuthCipher(apiv3Key);
+        this.privacyEncryptor = new SM2PrivacyEncryptor();
+        this.privacyDecryptor = new SM2PrivacyDecryptor(privateKey);
     }
 
-    public static WxPayV3RSAConfigBuilder newBuilder() {
-        return new WxPayV3RSAConfigBuilder();
+    public static WxPayV3SMConfigBuilder newBuilder() {
+        return new WxPayV3SMConfigBuilder();
     }
 
-    public static class WxPayV3RSAConfigBuilder {
+    public static class WxPayV3SMConfigBuilder {
 
         private String mchId;
 
@@ -48,45 +48,45 @@ public class WxPayRSAConfig extends WxPayAbstractConfig {
 
         private String apiv3Key;
 
-        private WxPayV3RSAConfigBuilder() {
+        private WxPayV3SMConfigBuilder() {
         }
 
-        public WxPayV3RSAConfigBuilder mchId(String mchId) {
+        public WxPayV3SMConfigBuilder mchId(String mchId) {
             this.mchId = mchId;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder serialNo(String serialNo) {
+        public WxPayV3SMConfigBuilder serialNo(String serialNo) {
             this.serialNo = serialNo;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder privateCertStr(String privateCertStr) {
+        public WxPayV3SMConfigBuilder privateCertStr(String privateCertStr) {
             this.privateCertStr = privateCertStr;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder privateCertPath(String privateCertPath) {
+        public WxPayV3SMConfigBuilder privateCertPath(String privateCertPath) {
             this.privateCertPath = privateCertPath;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder privateKeyStr(String privateKeyStr) {
+        public WxPayV3SMConfigBuilder privateKeyStr(String privateKeyStr) {
             this.privateKeyStr = privateKeyStr;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder privateKeyPath(String privateKeyPath) {
+        public WxPayV3SMConfigBuilder privateKeyPath(String privateKeyPath) {
             this.privateKeyPath = privateKeyPath;
             return this;
         }
 
-        public WxPayV3RSAConfigBuilder apiv3Key(String apiv3Key) {
+        public WxPayV3SMConfigBuilder apiv3Key(String apiv3Key) {
             this.apiv3Key = apiv3Key;
             return this;
         }
 
-        public WxPayRSAConfig build() throws WxErrorException {
+        public WxPaySMConfig build() throws WxErrorException {
             if (StringUtils.isBlank(this.mchId)) {
                 throw new WxErrorException(WxErrorExceptionFactor.INVALID_PARAMETER_CODE, "mchId 必须提供值");
             }
@@ -116,7 +116,7 @@ public class WxPayRSAConfig extends WxPayAbstractConfig {
                 privateKey = CertKeyUtils.loadPrivateKey(this.privateKeyStr);
             }
 
-            return new WxPayRSAConfig(this.mchId, this.serialNo, certificate, privateKey, this.apiv3Key);
+            return new WxPaySMConfig(this.mchId, this.serialNo, certificate, privateKey, this.apiv3Key);
         }
     }
 }

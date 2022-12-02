@@ -50,7 +50,7 @@ public abstract class AbstractAuthCipher implements AuthCipher {
 
 
     @Override
-    public String encrypt(String nonce, String associatedData, String plainText) throws WxErrorException {
+    public String encrypt(String nonce, String associatedData, String plaintext) throws WxErrorException {
         try {
             Cipher cipher = Cipher.getInstance(this.transformation);
             SecretKeySpec key = new SecretKeySpec(this.apiv3Key, this.algorithm);
@@ -59,7 +59,7 @@ public abstract class AbstractAuthCipher implements AuthCipher {
             if (associatedData != null) {
                 cipher.updateAAD(associatedData.getBytes(StandardCharsets.UTF_8));
             }
-            return Base64Utils.encodeToString(cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8)));
+            return Base64Utils.encodeToString(cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8)));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             throw new WxErrorException(WxErrorExceptionFactor.ENCRYPT_ERROR);
