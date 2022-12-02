@@ -1,8 +1,8 @@
 package com.github.songxzj.wxpay.v3.core.privacydecryptor;
 
 
-import com.github.songxzj.common.core.kona.KonaProvider;
 import com.github.songxzj.common.exception.WxErrorException;
+import com.tencent.kona.KonaProvider;
 
 import java.security.PrivateKey;
 import java.security.Security;

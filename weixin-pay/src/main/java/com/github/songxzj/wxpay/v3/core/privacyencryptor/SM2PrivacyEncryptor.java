@@ -1,6 +1,6 @@
 package com.github.songxzj.wxpay.v3.core.privacyencryptor;
 
-import com.github.songxzj.common.core.kona.KonaProvider;
+import com.tencent.kona.KonaProvider;
 
 import java.security.Security;
 
