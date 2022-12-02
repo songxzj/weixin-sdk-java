@@ -1,18 +1,18 @@
 package com.github.songxzj.wxpay.util;
 
 
+import cn.hutool.core.io.IoUtil;
 import com.github.songxzj.common.exception.WxErrorException;
 import com.github.songxzj.common.exception.WxErrorExceptionFactor;
-import com.github.songxzj.wxpay.constant.WxPayConstants;
+import com.tencent.kona.KonaProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.net.URL;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
+import java.nio.charset.StandardCharsets;
+import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -21,6 +21,10 @@ import java.security.spec.PKCS8EncodedKeySpec;
 
 @Slf4j
 public class CertKeyUtils {
+
+    static {
+        Security.addProvider(new KonaProvider());
+    }
 
     /*private static final int TAG_LENGTH_BIT = 128;
     private static final String CIPHER_PROVIDER = "SunJCE";
@@ -60,19 +64,8 @@ public class CertKeyUtils {
      * @throws WxErrorException
      */
     public static PrivateKey loadPrivateKey(InputStream inputStream) throws WxErrorException {
-        try {
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) != -1) {
-                array.write(buffer, 0, length);
-            }
-            String privateKeyStr = array.toString(WxPayConstants.DEFAULT_CHARSET);
-            return loadPrivateKey(privateKeyStr);
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-            throw new WxErrorException(WxErrorExceptionFactor.KEY_ERROR_ERROR);
-        }
+        String privateKeyStr = IoUtil.readUtf8(inputStream);
+        return loadPrivateKey(privateKeyStr);
     }
 
     /**
@@ -84,10 +77,7 @@ public class CertKeyUtils {
      */
     public static PrivateKey loadPrivateKey(String privateKeyStr) throws WxErrorException {
         try {
-            String privateKey = privateKeyStr
-                    .replace("-----BEGIN PRIVATE KEY-----", "")
-                    .replace("-----END PRIVATE KEY-----", "")
-                    .replaceAll("\\s+", "");
+            String privateKey = getReplacePrivateKey(privateKeyStr);
 
             KeyFactory kf = KeyFactory.getInstance("RSA");
             return kf.generatePrivate(new PKCS8EncodedKeySpec(Base64Utils.decodeFromString(privateKey)));
@@ -96,6 +86,47 @@ public class CertKeyUtils {
             throw new WxErrorException(WxErrorExceptionFactor.KEY_ERROR_ERROR);
         }
     }
+
+
+    /**
+     * 加载 v3 商户密钥
+     *
+     * @param inputStream
+     * @return
+     * @throws WxErrorException
+     */
+    public static PrivateKey loadPrivateKey(InputStream inputStream, String algorithm, String provider) throws WxErrorException {
+        String privateKeyStr = IoUtil.readUtf8(inputStream);
+        return loadPrivateKey(privateKeyStr, algorithm, provider);
+    }
+
+    /**
+     * 从字符串中加载指定算法的私钥
+     *
+     * @param privateKeyStr 私钥字符串
+     * @param algorithm     私钥算法
+     * @param provider      the provider
+     * @return 私钥
+     */
+    public static PrivateKey loadPrivateKey(String privateKeyStr, String algorithm, String provider) throws WxErrorException {
+        try {
+            String privateKey = getReplacePrivateKey(privateKeyStr);
+
+            KeyFactory kf = KeyFactory.getInstance(algorithm, provider);
+            return kf.generatePrivate(new PKCS8EncodedKeySpec(Base64Utils.decodeFromString(privateKey)));
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException | NoSuchProviderException e) {
+            log.error(e.getMessage(), e);
+            throw new WxErrorException(WxErrorExceptionFactor.KEY_ERROR_ERROR);
+        }
+    }
+
+    private static String getReplacePrivateKey(String privateKeyStr) {
+        return privateKeyStr
+                .replace("-----BEGIN PRIVATE KEY-----", "")
+                .replace("-----END PRIVATE KEY-----", "")
+                .replaceAll("\\s+", "");
+    }
+
 
     /**
      * 加载证书
@@ -124,7 +155,37 @@ public class CertKeyUtils {
      * @throws WxErrorException
      */
     public static X509Certificate loadCertificate(String certificateStr) throws WxErrorException {
-        return loadCertificate(new ByteArrayInputStream(certificateStr.getBytes()));
+        return loadCertificate(new ByteArrayInputStream(certificateStr.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    /**
+     * 加载证书
+     *
+     * @param inputStream
+     * @return
+     * @throws WxErrorException
+     */
+    public static X509Certificate loadCertificate(InputStream inputStream, String provider) throws WxErrorException {
+        try {
+            CertificateFactory cf = CertificateFactory.getInstance("X509", provider);
+            X509Certificate cert = (X509Certificate) cf.generateCertificate(inputStream);
+            cert.checkValidity();
+            return cert;
+        } catch (CertificateException | NoSuchProviderException e) {
+            log.error(e.getMessage(), e);
+            throw new WxErrorException(WxErrorExceptionFactor.KEY_FILE_ERROR);
+        }
+    }
+
+    /**
+     * 加载证书
+     *
+     * @param certificateStr
+     * @return
+     * @throws WxErrorException
+     */
+    public static X509Certificate loadCertificate(String certificateStr, String provider) throws WxErrorException {
+        return loadCertificate(new ByteArrayInputStream(certificateStr.getBytes(StandardCharsets.UTF_8)), provider);
     }
 
 

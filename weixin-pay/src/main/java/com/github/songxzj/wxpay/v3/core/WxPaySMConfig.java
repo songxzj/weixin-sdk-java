@@ -8,12 +8,14 @@ import com.github.songxzj.wxpay.v3.core.privacydecryptor.SM2PrivacyDecryptor;
 import com.github.songxzj.wxpay.v3.core.privacyencryptor.SM2PrivacyEncryptor;
 import com.github.songxzj.wxpay.v3.core.signer.SM2Signer;
 import com.github.songxzj.wxpay.v3.core.verifier.SM2Verifier;
+import com.tencent.kona.KonaProvider;
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 
 public class WxPaySMConfig extends WxPayAbstractConfig {
+    private static final String ALGORITHM = "EC";
 
     private WxPaySMConfig(String mchId, String serialNo, X509Certificate certificate, PrivateKey privateKey, String apiv3Key) throws WxErrorException {
         this.mchId = mchId;
@@ -105,15 +107,15 @@ public class WxPaySMConfig extends WxPayAbstractConfig {
 
             X509Certificate certificate;
             if (!StringUtils.isBlank(this.privateCertPath)) {
-                certificate = CertKeyUtils.loadCertificate(CertKeyUtils.loadInputStream(this.privateCertPath));
+                certificate = CertKeyUtils.loadCertificate(CertKeyUtils.loadInputStream(this.privateCertPath), KonaProvider.NAME);
             } else {
-                certificate = CertKeyUtils.loadCertificate(this.privateCertStr);
+                certificate = CertKeyUtils.loadCertificate(this.privateCertStr, KonaProvider.NAME);
             }
             PrivateKey privateKey;
             if (!StringUtils.isBlank(this.privateKeyPath)) {
-                privateKey = CertKeyUtils.loadPrivateKey(CertKeyUtils.loadInputStream(this.privateKeyPath));
+                privateKey = CertKeyUtils.loadPrivateKey(CertKeyUtils.loadInputStream(this.privateKeyPath), ALGORITHM, KonaProvider.NAME);
             } else {
-                privateKey = CertKeyUtils.loadPrivateKey(this.privateKeyStr);
+                privateKey = CertKeyUtils.loadPrivateKey(this.privateKeyStr, ALGORITHM, KonaProvider.NAME);
             }
 
             return new WxPaySMConfig(this.mchId, this.serialNo, certificate, privateKey, this.apiv3Key);
