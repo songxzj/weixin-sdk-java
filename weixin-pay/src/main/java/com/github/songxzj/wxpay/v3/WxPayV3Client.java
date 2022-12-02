@@ -12,7 +12,6 @@ import com.github.songxzj.common.util.WxIOUtils;
 import com.github.songxzj.wxpay.constant.WxPayConstants;
 import com.github.songxzj.wxpay.util.CertKeyUtils;
 import com.github.songxzj.wxpay.util.SensitiveUtils;
-import com.github.songxzj.wxpay.util.SignUtils;
 import com.github.songxzj.wxpay.v3.bean.cert.WxPayV3Certificate;
 import com.github.songxzj.wxpay.v3.bean.request.BaseWxPayV3Request;
 import com.github.songxzj.wxpay.v3.bean.request.WxCertificatesV3Request;
@@ -34,7 +33,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -473,9 +472,8 @@ public class WxPayV3Client {
      * 获取 RestTemplate
      *
      * @return
-     * @throws WxErrorException
      */
-    private RestTemplate getRestClient() throws WxErrorException {
+    private RestTemplate getRestClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         OkHttpClient okHttpClient = builder.build();
         OkHttp3ClientHttpRequestFactory requestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
@@ -483,7 +481,7 @@ public class WxPayV3Client {
         requestFactory.setReadTimeout(this.readTimeout);
 
         RestTemplate restClient = new RestTemplate(requestFactory);
-        restClient.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName(WxPayConstants.DEFAULT_CHARSET)));
+        restClient.getMessageConverters().add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
 
         return restClient;
     }
@@ -494,9 +492,8 @@ public class WxPayV3Client {
      * @param token
      * @param idempotencyKey
      * @return
-     * @throws WxErrorException
      */
-    private HttpHeaders getRequestHeaders(String token, String idempotencyKey) throws WxErrorException {
+    private HttpHeaders getRequestHeaders(String token, String idempotencyKey) {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_UTF8_VALUE);
         requestHeaders.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE);
