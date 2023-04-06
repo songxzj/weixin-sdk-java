@@ -171,6 +171,16 @@ public class WxComplaintResult extends BaseWxPayV3Result {
     @SerializedName("user_tag_list")
     private List<String> userTagList;
 
+    /**
+     * 补充信息
+     * additional_info
+     * object
+     * 否
+     * 用在特定行业或场景下返回的补充信息
+     */
+    @SerializedName("additional_info")
+    private AdditionalInfo additionalInfo;
+
 
     /**
      * 投诉资料
@@ -278,8 +288,59 @@ public class WxComplaintResult extends BaseWxPayV3Result {
          */
         @SerializedName("state")
         private String state;
-
     }
+
+
+    /**
+     * 补充信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class AdditionalInfo implements Serializable {
+        private static final long serialVersionUID = -2513453955585606051L;
+
+        /**
+         * 补充信息类型
+         * type
+         * string
+         * 否
+         * 补充信息类型，枚举值：
+         * SHARE_POWER_TYPE：充电宝投诉相关行业
+         */
+        private String type;
+
+        /**
+         * 充电宝投诉相关信息
+         * share_power_info
+         * object
+         * 否
+         * 当type为充电宝投诉相关时有值
+         */
+        private SharePowerInfo sharePowerInfo;
+    }
+
+    /**
+     * 充电宝投诉相关信息
+     */
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class SharePowerInfo implements Serializable {
+        private static final long serialVersionUID = -2410719777974703341L;
+
+        /**
+         * 归还时间
+         * return_time
+         * string
+         * 否
+         */
+        private String returnTime;
+    }
+
+
 
     @Override
     public boolean isSensitiveEncrypt() {
